@@ -330,14 +330,7 @@ Some poems were not only written for you — they were spoken.
                 <div class="p-4">
                     <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg overflow-hidden">
                         <!-- Video placeholder - replace with actual video URL -->
-                        <div class="w-full h-full flex items-center justify-center bg-gradient-to-r from-love-pink to-love-rose">
-                            <div class="text-center text-white p-8">
-                                <i class="fas fa-play-circle text-6xl mb-4"></i>
-                                <h4 class="text-2xl font-script mb-2">Sorry</h4>
-                                <p class="mb-4">please go through end</p>
-                                <!-- <p class="text-sm">Replace this with your actual video embed code</p> -->
-                                <!-- <p class="text-xs mt-4">Example: &lt;iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"&gt;&lt;/iframe&gt;</p> -->
-                            </div>
+                        <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;"><iframe src="https://www.youtube.com/embed/95Cozwi7_dI?rel=0" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;" referrerpolicy="strict-origin"></iframe></div>
                         </div>
                     </div>
                     <div class="mt-4 text-center text-gray-600">
@@ -404,6 +397,13 @@ const photoGallery = photoFiles.map((file, index) => ({
 }));
 
  const allPoems = [
+
+     { id: 0, title: "thanks", content: `if you ever feel unloved or low, 
+     come to this website and recall how a boy named Rishu loved you like crazy.
+     also Remember me at least two days in a year
+     on my birthday because i'll be missing you
+     on your birthday because i'll be missing you
+     no need to text or call, just think of me for a while`, category: "beauty", date: "", favorite: true },
 
 { id: 1, title: "Poem 1", content: `अगर तुम जानना चाहती
  तो सुनाता मैं तुम्हें अपनी कहानी 
@@ -2377,3 +2377,4 @@ window.addEventListener('load', function() {
 });
     </script>
 </body>
+
