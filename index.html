@@ -1,15 +1,18 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <base target="_self">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday, My Love</title>
-    <meta name="description" content="A beautiful website celebrating the birthday of my love with photos, poems, and memories.">
+    <meta name="description"
+        content="A beautiful website celebrating the birthday of my love with photos, poems, and memories.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -53,39 +56,74 @@
         .gradient-bg {
             background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 25%, #f9a8d4 50%, #f472b6 75%, #db2777 100%);
         }
+
         .poem-card {
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
+
         .image-grid {
             display: grid;
             gap: 1rem;
         }
+
         @media (min-width: 640px) {
             .image-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+
         @media (min-width: 1024px) {
             .image-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
+
         @media (min-width: 1280px) {
             .image-grid {
                 grid-template-columns: repeat(4, 1fr);
             }
         }
+
         .scrollbar-hide::-webkit-scrollbar {
             display: none;
         }
+
         .scrollbar-hide {
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
+        /* Sakura Petals */
+
+        .sakura {
+            position: fixed;
+            top: -10px;
+            color: #f9a8d4;
+            font-size: 18px;
+            pointer-events: none;
+            animation: sakura-fall linear infinite;
+        }
+
+        @keyframes sakura-fall {
+            0% {
+                transform: translateY(-10px) translateX(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            50% {
+                transform: translateY(50vh) translateX(40px) rotate(180deg);
+            }
+
+            100% {
+                transform: translateY(110vh) translateX(-40px) rotate(360deg);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
+
 <body class="min-h-screen bg-love-pink font-body text-love-dark">
     <!-- Header with Navigation -->
     <header class="sticky top-0 z-50 gradient-bg shadow-lg">
@@ -93,7 +131,8 @@
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
                     <h1 class="text-3xl md:text-4xl font-script text-white drop-shadow-lg animate-pulse-gentle">
-                        <i class="fas fa-heart mr-2 animate-heartbeat"></i>Happy Birthday, My Love<i class="fas fa-heart ml-2 animate-heartbeat"></i>
+                        <i class="fas fa-heart mr-2 animate-heartbeat"></i>Happy Birthday, My Love<i
+                            class="fas fa-heart ml-2 animate-heartbeat"></i>
                     </h1>
                 </div>
                 <ul id="nav-list" class="flex flex-wrap justify-center gap-4 md:gap-6"></ul>
@@ -114,10 +153,12 @@
                         Every moment with you is a beautiful memory. Today, we celebrate the amazing person you are.
                     </p>
                     <div class="flex flex-col sm:flex-row justify-center gap-4">
-                        <button id="video-btn" class="bg-love-rose hover:bg-love-purple text-white font-semibold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition duration-300 flex items-center justify-center">
+                        <button id="video-btn"
+                            class="bg-love-rose hover:bg-love-purple text-white font-semibold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition duration-300 flex items-center justify-center">
                             <i class="fas fa-play-circle mr-2 text-xl"></i> play only at end
                         </button>
-                        <button id="scroll-to-poems" class="bg-white hover:bg-love-pink text-love-rose font-semibold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition duration-300 flex items-center justify-center">
+                        <button id="scroll-to-poems"
+                            class="bg-white hover:bg-love-pink text-love-rose font-semibold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition duration-300 flex items-center justify-center">
                             <i class="fas fa-book-open mr-2"></i> world where you are mine
                         </button>
                     </div>
@@ -127,37 +168,40 @@
         </section>
 
         <!-- Poem of the Day -->
-<section id="daily-poem-section" class="py-12 md:py-16 bg-white">
-    <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl md:text-5xl font-script text-love-rose mb-6">
-           Today's Poem, Just For You
-        </h2>
+        <section id="daily-poem-section" class="py-12 md:py-16 bg-white">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-5xl font-script text-love-rose mb-6">
+                    Today's Poem, Just For You
+                </h2>
 
-        <div class="max-w-3xl mx-auto poem-card rounded-2xl p-8 shadow-lg">
-            <h3 id="daily-poem-title" class="text-2xl font-script text-love-purple mb-4"></h3>
+                <div class="max-w-3xl mx-auto poem-card rounded-2xl p-8 shadow-lg">
+                    <h3 id="daily-poem-title" class="text-2xl font-script text-love-purple mb-4"></h3>
 
-            <div id="daily-poem-content" class="text-gray-700 whitespace-pre-line leading-relaxed text-lg"></div>
+                    <div id="daily-poem-content" class="text-gray-700 whitespace-pre-line leading-relaxed text-lg">
+                    </div>
 
-            <div class="mt-6">
-                <button id="open-daily-poem"
-                    class="bg-love-purple hover:bg-love-rose text-white px-6 py-2 rounded-full transition duration-300">
-                    Read Full Poem
-                </button>
+                    <div class="mt-6">
+                        <button id="open-daily-poem"
+                            class="bg-love-purple hover:bg-love-rose text-white px-6 py-2 rounded-full transition duration-300">
+                            Read Full Poem
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
 
         <!-- Photo Gallery Section -->
         <section id="gallery" class="py-12 md:py-16 bg-white">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-5xl font-script text-love-rose mb-4">Beautiful Memories</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">A collection of moments that capture your beauty, joy, and spirit.</p>
+                    <p class="text-gray-600 max-w-2xl mx-auto">A collection of moments that capture your beauty, joy,
+                        and spirit.</p>
                 </div>
                 <div id="gallery-grid" class="image-grid"></div>
                 <div class="text-center mt-12">
-                    <button id="load-more-photos" class="bg-love-pink hover:bg-love-rose text-love-dark font-semibold py-3 px-8 rounded-full border-2 border-love-rose transition duration-300">
+                    <button id="load-more-photos"
+                        class="bg-love-pink hover:bg-love-rose text-love-dark font-semibold py-3 px-8 rounded-full border-2 border-love-rose transition duration-300">
                         <i class="fas fa-images mr-2"></i>Load More Photos
                     </button>
                 </div>
@@ -165,138 +209,241 @@
         </section>
 
         <!-- Poetry Videos Section -->
-<section id="videos" class="py-12 md:py-16 bg-white">
+        <section id="videos" class="py-12 md:py-16 bg-white">
 
-<div class="container mx-auto px-4">
+            <div class="container mx-auto px-4">
 
-<div class="text-center mb-12">
-<h2 class="text-3xl md:text-5xl font-script text-love-rose mb-4">
-Poetry For You
-</h2>
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-5xl font-script text-love-rose mb-4">
+                        Poetry For You
+                    </h2>
 
-<p class="text-gray-600 max-w-2xl mx-auto">
-Some poems were not only written for you — they were spoken.
-</p>
-</div>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Some poems were not only written for you — they were spoken.
+                    </p>
+                </div>
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-<!-- Video 1 -->
-<div class="rounded-2xl overflow-hidden shadow-lg">
-<div style="max-width: 56vh;"><div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 177.7778%;"><iframe src="https://www.youtube.com/embed/6a5Ywz9JaN8?rel=0" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;" referrerpolicy="strict-origin"></iframe></div></div>
-<div class="p-4">
-<h3 class="font-semibold text-love-purple">My Home</h3>
-</div>
-</div>
+                    <!-- Video 1 -->
+                    <div class="rounded-2xl overflow-hidden shadow-lg">
+                        <div style="max-width: 56vh;">
+                            <div
+                                style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 177.7778%;">
+                                <iframe src="https://www.youtube.com/embed/qVAXQiQcCT4?rel=0"
+                                    style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;"
+                                    allowfullscreen scrolling="no"
+                                    allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;"
+                                    referrerpolicy="strict-origin"></iframe>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-love-purple">Most Beautiful Poem</h3>
+                        </div>
+                    </div>
 
-<!-- Video 2 -->
-<div class="rounded-2xl overflow-hidden shadow-lg">
-<div style="max-width: 56vh;"><div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 177.7778%;"><iframe src="https://www.youtube.com/embed/CEB2Ix_AJX0?rel=0" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;" referrerpolicy="strict-origin"></iframe></div></div>
-<div class="p-4">
-<h3 class="font-semibold text-love-purple">Drifting Away of Moon</h3>
-</div>
-</div>
+                    <!-- Video 1 -->
+                    <div class="rounded-2xl overflow-hidden shadow-lg">
+                        <div style="max-width: 56vh;">
+                            <div
+                                style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 177.7778%;">
+                                <iframe src="https://www.youtube.com/embed/6a5Ywz9JaN8?rel=0"
+                                    style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;"
+                                    allowfullscreen scrolling="no"
+                                    allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;"
+                                    referrerpolicy="strict-origin"></iframe>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-love-purple">My Home</h3>
+                        </div>
+                    </div>
 
-<!-- Video 3 -->
-<div class="rounded-2xl overflow-hidden shadow-lg">
-<div style="max-width: 56vh;"><div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 177.7778%;"><iframe src="https://www.youtube.com/embed/co3-pvrFJ30?rel=0" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;" referrerpolicy="strict-origin"></iframe></div></div>
-<div class="p-4">
-<h3 class="font-semibold text-love-purple">Tumhari Shadi</h3>
-</div>
-</div>
+                    <!-- Video 2 -->
+                    <div class="rounded-2xl overflow-hidden shadow-lg">
+                        <div style="max-width: 56vh;">
+                            <div
+                                style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 177.7778%;">
+                                <iframe src="https://www.youtube.com/embed/CEB2Ix_AJX0?rel=0"
+                                    style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;"
+                                    allowfullscreen scrolling="no"
+                                    allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;"
+                                    referrerpolicy="strict-origin"></iframe>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-love-purple">Drifting Away of Moon</h3>
+                        </div>
+                    </div>
 
-<!-- Video 4 -->
-<div class="rounded-2xl overflow-hidden shadow-lg">
-<div style="max-width: 56vh;"><div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 177.7778%;"><iframe src="https://www.youtube.com/embed/oScCp9-gaHA?rel=0" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;" referrerpolicy="strict-origin"></iframe></div></div>
-<div class="p-4">
-<h3 class="font-semibold text-love-purple">Mera Dar</h3>
-</div>
-</div>
+                    <!-- Video 3 -->
+                    <div class="rounded-2xl overflow-hidden shadow-lg">
+                        <div style="max-width: 56vh;">
+                            <div
+                                style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 177.7778%;">
+                                <iframe src="https://www.youtube.com/embed/co3-pvrFJ30?rel=0"
+                                    style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;"
+                                    allowfullscreen scrolling="no"
+                                    allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;"
+                                    referrerpolicy="strict-origin"></iframe>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-love-purple">Tumhari Shadi</h3>
+                        </div>
+                    </div>
 
-<!-- Video 3 -->
-<div class="rounded-2xl overflow-hidden shadow-lg">
-<div style="max-width: 56vh;"><div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 177.7778%;"><iframe src="https://www.youtube.com/embed/Ukcr9J6BVqg?rel=0" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;" referrerpolicy="strict-origin"></iframe></div></div>
-<div class="p-4">
-<h3 class="font-semibold text-love-purple">Kash Aaj Tum Yaha Hoti</h3>
-</div>
-</div>
+                    <!-- Video 4 -->
+                    <div class="rounded-2xl overflow-hidden shadow-lg">
+                        <div style="max-width: 56vh;">
+                            <div
+                                style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 177.7778%;">
+                                <iframe src="https://www.youtube.com/embed/oScCp9-gaHA?rel=0"
+                                    style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;"
+                                    allowfullscreen scrolling="no"
+                                    allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;"
+                                    referrerpolicy="strict-origin"></iframe>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-love-purple">Mera Dar</h3>
+                        </div>
+                    </div>
 
-<!-- Video 3 -->
-<div class="rounded-2xl overflow-hidden shadow-lg">
-<video controls class="w-full">
-<source src="poems/v10.mp4" type="video/mp4">
-</video>
-<div class="p-4">
-<h3 class="font-semibold text-love-purple">Manikarnika aur Annapoorna</h3>
-</div>
-</div>
+                    <!-- Video 3 -->
+                    <div class="rounded-2xl overflow-hidden shadow-lg">
+                        <div style="max-width: 56vh;">
+                            <div
+                                style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 177.7778%;">
+                                <iframe src="https://www.youtube.com/embed/Ukcr9J6BVqg?rel=0"
+                                    style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;"
+                                    allowfullscreen scrolling="no"
+                                    allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;"
+                                    referrerpolicy="strict-origin"></iframe>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-love-purple">Kash Aaj Tum Yaha Hoti</h3>
+                        </div>
+                    </div>
 
-<!-- Video 3 -->
-<div class="rounded-2xl overflow-hidden shadow-lg">
-<div style="max-width: 56vh;"><div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 177.7778%;"><iframe src="https://www.youtube.com/embed/OlzhXPUKqZM?rel=0" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;" referrerpolicy="strict-origin"></iframe></div></div>
-<div class="p-4">
-<h3 class="font-semibold text-love-purple">Mar Jaoge Pandit, Prem me Mrityu Hai, Mukti Nahi</h3>
-</div>
-</div>
+                    <!-- Video 3 -->
+                    <div class="rounded-2xl overflow-hidden shadow-lg">
+                        <video controls class="w-full">
+                            <source src="poems/v10.mp4" type="video/mp4">
+                        </video>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-love-purple">Manikarnika aur Annapoorna</h3>
+                        </div>
+                    </div>
 
-<!-- Video 3 -->
-<div class="rounded-2xl overflow-hidden shadow-lg">
-<div style="max-width: 56vh;"><div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 177.7778%;"><iframe src="https://www.youtube.com/embed/1yYkUE4w0JA?rel=0" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;" referrerpolicy="strict-origin"></iframe></div></div>
-<div class="p-4">
-<h3 class="font-semibold text-love-purple">Jhooth Se Aazad</h3>
-</div>
-</div>
+                    <!-- Video 3 -->
+                    <div class="rounded-2xl overflow-hidden shadow-lg">
+                        <div style="max-width: 56vh;">
+                            <div
+                                style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 177.7778%;">
+                                <iframe src="https://www.youtube.com/embed/OlzhXPUKqZM?rel=0"
+                                    style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;"
+                                    allowfullscreen scrolling="no"
+                                    allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;"
+                                    referrerpolicy="strict-origin"></iframe>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-love-purple">Mar Jaoge Pandit, Prem me Mrityu Hai, Mukti Nahi
+                            </h3>
+                        </div>
+                    </div>
 
-<!-- Video 3 -->
-<div class="rounded-2xl overflow-hidden shadow-lg">
-<div style="max-width: 56vh;"><div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 177.7778%;"><iframe src="https://www.youtube.com/embed/mRQaBaXWlls?rel=0" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;" referrerpolicy="strict-origin"></iframe></div></div>
-<div class="p-4">
-<h3 class="font-semibold text-love-purple">Tera hi Tera</h3>
-</div>
-</div>
+                    <!-- Video 3 -->
+                    <div class="rounded-2xl overflow-hidden shadow-lg">
+                        <div style="max-width: 56vh;">
+                            <div
+                                style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 177.7778%;">
+                                <iframe src="https://www.youtube.com/embed/1yYkUE4w0JA?rel=0"
+                                    style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;"
+                                    allowfullscreen scrolling="no"
+                                    allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;"
+                                    referrerpolicy="strict-origin"></iframe>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-love-purple">Jhooth Se Aazad</h3>
+                        </div>
+                    </div>
 
-<!-- Video 3 -->
-<div class="rounded-2xl overflow-hidden shadow-lg">
-<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;"><iframe src="https://www.youtube.com/embed/zXEYtaZVz74?rel=0" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen scrolling="no" allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;" referrerpolicy="strict-origin"></iframe></div>
-<div class="p-4">
-<h3 class="font-semibold text-love-purple">My Tears</h3>
-</div>
-</div>
+                    <!-- Video 3 -->
+                    <div class="rounded-2xl overflow-hidden shadow-lg">
+                        <div style="max-width: 56vh;">
+                            <div
+                                style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 177.7778%;">
+                                <iframe src="https://www.youtube.com/embed/mRQaBaXWlls?rel=0"
+                                    style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;"
+                                    allowfullscreen scrolling="no"
+                                    allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;"
+                                    referrerpolicy="strict-origin"></iframe>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-love-purple">Tera hi Tera</h3>
+                        </div>
+                    </div>
 
-<!-- Video 3 -->
-<div class="rounded-2xl overflow-hidden shadow-lg">
-<video controls class="w-full">
-<source src="poems/v15.mp4" type="video/mp4">
-</video>
-<div class="p-4">
-<h3 class="font-semibold text-love-purple">Izehar-e-Mohabbat</h3>
-</div>
-</div>
+                    <!-- Video 3 -->
+                    <div class="rounded-2xl overflow-hidden shadow-lg">
+                        <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
+                            <iframe src="https://www.youtube.com/embed/zXEYtaZVz74?rel=0"
+                                style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;"
+                                allowfullscreen scrolling="no"
+                                allow="accelerometer *; clipboard-write *; encrypted-media *; gyroscope *; picture-in-picture *; web-share *;"
+                                referrerpolicy="strict-origin"></iframe>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-love-purple">My Tears</h3>
+                        </div>
+                    </div>
+
+                    <!-- Video 3 -->
+                    <div class="rounded-2xl overflow-hidden shadow-lg">
+                        <video controls class="w-full">
+                            <source src="poems/v15.mp4" type="video/mp4">
+                        </video>
+                        <div class="p-4">
+                            <h3 class="font-semibold text-love-purple">Izehar-e-Mohabbat</h3>
+                        </div>
+                    </div>
 
 
 
-</div>
+                </div>
 
-</div>
-</section>
+            </div>
+        </section>
 
         <!-- Poems Section -->
         <section id="poems" class="py-12 md:py-16 bg-love-pink">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-5xl font-script text-love-purple mb-4">Poems for You</h2>
-                    <p class="text-gray-700 max-w-2xl mx-auto">Words from my heart, dedicated to the most beautiful soul I know.</p>
+                    <p class="text-gray-700 max-w-2xl mx-auto">Words from my heart, dedicated to the most beautiful soul
+                        I know.</p>
                 </div>
-                
+
                 <div class="mb-8">
                     <div class="flex flex-wrap justify-center gap-4 mb-6">
-                        <button data-filter="all" class="filter-btn active bg-love-purple text-white px-6 py-2 rounded-full">All Poems</button>
-                        <button data-filter="love" class="filter-btn bg-love-rose text-white px-6 py-2 rounded-full">Love</button>
-                        <button data-filter="beauty" class="filter-btn bg-love-gold text-white px-6 py-2 rounded-full">Beauty</button>
-                        <button data-filter="yearn" class="filter-btn bg-pink-400 text-white px-6 py-2 rounded-full">yearn</button>
+                        <button data-filter="all"
+                            class="filter-btn active bg-love-purple text-white px-6 py-2 rounded-full">All
+                            Poems</button>
+                        <button data-filter="love"
+                            class="filter-btn bg-love-rose text-white px-6 py-2 rounded-full">Love</button>
+                        <button data-filter="beauty"
+                            class="filter-btn bg-love-gold text-white px-6 py-2 rounded-full">Beauty</button>
+                        <button data-filter="yearn"
+                            class="filter-btn bg-pink-400 text-white px-6 py-2 rounded-full">yearn</button>
                     </div>
                     <div class="relative max-w-2xl mx-auto">
-                        <input type="text" id="poem-search" placeholder="Search poems..." class="w-full px-6 py-3 rounded-full border-2 border-love-rose focus:outline-none focus:border-love-purple">
+                        <input type="text" id="poem-search" placeholder="Search poems..."
+                            class="w-full px-6 py-3 rounded-full border-2 border-love-rose focus:outline-none focus:border-love-purple">
                         <i class="fas fa-search absolute right-4 top-3 text-love-rose"></i>
                     </div>
                 </div>
@@ -307,11 +454,13 @@ Some poems were not only written for you — they were spoken.
 
                 <div class="text-center">
                     <div class="flex justify-center items-center gap-4 mb-6">
-                        <button id="prev-page" class="bg-white hover:bg-love-pink text-love-purple w-12 h-12 rounded-full shadow-md flex items-center justify-center">
+                        <button id="prev-page"
+                            class="bg-white hover:bg-love-pink text-love-purple w-12 h-12 rounded-full shadow-md flex items-center justify-center">
                             <i class="fas fa-chevron-left"></i>
                         </button>
                         <span id="page-info" class="text-gray-700 font-semibold">Page 1 of 10</span>
-                        <button id="next-page" class="bg-white hover:bg-love-pink text-love-purple w-12 h-12 rounded-full shadow-md flex items-center justify-center">
+                        <button id="next-page"
+                            class="bg-white hover:bg-love-pink text-love-purple w-12 h-12 rounded-full shadow-md flex items-center justify-center">
                             <i class="fas fa-chevron-right"></i>
                         </button>
                     </div>
@@ -321,23 +470,25 @@ Some poems were not only written for you — they were spoken.
         </section>
 
         <!-- Video Modal (Hidden by default) -->
-        <div id="video-modal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center p-4">
+        <div id="video-modal"
+            class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center p-4">
             <div class="bg-white rounded-2xl max-w-4xl w-full overflow-hidden">
                 <div class="flex justify-between items-center p-4 border-b">
-                    <h3 class="text-xl font-script text-love-purple">Sorry</h3>
+                    <h3 class="text-xl font-script text-love-purple">Sorry, Phir Milenge...</h3>
                     <button id="close-modal" class="text-gray-500 hover:text-love-rose text-2xl">&times;</button>
                 </div>
-               <div class="p-4">
+                <div class="p-4">
 
-<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;">
-<iframe 
-src="https://www.youtube.com/embed/95Cozwi7_dI?rel=0"
-style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
-allowfullscreen>
-</iframe>
-</div>
+                    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;">
+                        <iframe src="https://www.youtube.com/embed/95Cozwi7_dI?rel=0"
+                            style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="text-center text-love-purple font-script text-xl mt-4">If you ever need me, Remember I'm
+                        always here for you. I hope you forgive me. And yeah, I won't be disturbing you from now on by
+                        calling you.Read the first poem, that has a message for you.</p>
 
-</div>
+                </div>
             </div>
         </div>
     </main>
@@ -348,7 +499,8 @@ allowfullscreen>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <div>
                     <h4 class="text-2xl font-script text-love-rose mb-4">To My Love</h4>
-                    <p class="text-gray-300">Through this website, I want to be remembered forever. Happy birthday to the most wonderful person in my life.</p>
+                    <p class="text-gray-300">Through this website, I want to be remembered forever. Happy birthday to
+                        the most wonderful person in my life.</p>
                 </div>
                 <div>
                     <h5 class="text-xl font-semibold mb-4">Quick Links</h5>
@@ -371,6 +523,26 @@ allowfullscreen>
         </div>
     </footer>
 
+     <!-- Intro Warning Screen -->
+    <div id="intro-warning" class="fixed inset-0 bg-black z-50 flex items-center justify-center text-center p-6">
+
+        <div class="max-w-xl text-white">
+
+            <h2 class="text-3xl font-bold mb-6 text-red-400">
+                ⚠ Private Page
+            </h2>
+
+            <p id="warning-text" class="text-lg leading-relaxed mb-8"></p>
+
+            <button id="enter-btn"
+                class="hidden bg-love-rose hover:bg-love-purple text-white px-8 py-3 rounded-full transition duration-300">
+                Enter
+            </button>
+
+        </div>
+
+    </div>
+
     <script>
         // ========== DATA LAYER ==========
         const navigationItems = [
@@ -380,33 +552,39 @@ allowfullscreen>
             { "label": "Video", "href": "#", "icon": "fas fa-play-circle", "action": "video" }
         ];
         const photoFiles = [
-"B1.jpeg",
-"B2.jpeg",
-"B3.jpeg",
-"B4.jpeg",
-"B5.jpeg",
-"B6.jpeg",
-"F1.jpeg","F2.jpeg","F3.jpeg","F4.jpeg","F5.jpeg","F6.jpeg","F7.jpeg","F8.jpeg","P1.jpeg","P2.jpeg","P3.jpeg","P4.jpeg","P5.jpeg","P6.jpeg","P7.jpeg","P8.jpeg","P9.jpeg","P10.jpeg","P11.jpeg","P12.jpeg","P13.jpeg","P14.jpeg","P15.jpeg","P16.jpeg","P17.jpeg","P18.jpeg","P19.jpeg","P20.jpeg","P21.jpeg","P22.jpeg","P23.jpeg","P24.jpeg","P25.jpeg","P26.jpeg","P27.jpeg","P28.jpeg","P29.jpeg","P30.jpeg","P31.jpeg","P32.jpeg","P33.jpeg","P34.jpeg","P35.jpeg","P36.jpeg","P37.jpeg","P38.jpeg","P39.jpeg","P40jpeg","P41.jpeg"
+            "B1.jpeg",
+            "B2.jpeg",
+            "B3.jpeg",
+            "B4.jpeg",
+            "B5.jpeg",
+            "B6.jpeg",
+            "F1.jpeg", "F2.jpeg", "F3.jpeg", "F4.jpeg", "F5.jpeg", "F6.jpeg", "F7.jpeg", "F8.jpeg", "P1.jpeg", "P2.jpeg", "P3.jpeg", "P4.jpeg", "P5.jpeg", "P6.jpeg", "P7.jpeg", "P8.jpeg", "P9.jpeg", "P10.jpeg", "P11.jpeg", "P12.jpeg", "P13.jpeg", "P14.jpeg", "P15.jpeg", "P16.jpeg", "P17.jpeg", "P18.jpeg", "P19.jpeg", "P20.jpeg", "P21.jpeg", "P22.jpeg", "P23.jpeg", "P24.jpeg", "P25.jpeg", "P26.jpeg", "P27.jpeg", "P28.jpeg", "P29.jpeg", "P30.jpeg", "P31.jpeg", "P32.jpeg", "P33.jpeg", "P34.jpeg", "P35.jpeg", "P36.jpeg", "P37.jpeg", "P38.jpeg", "P39.jpeg", "P40jpeg", "P41.jpeg"
 
-];
+        ];
 
-const photoGallery = photoFiles.map((file, index) => ({
-    id: index + 1,
-    src: `her/${file}`,
-    alt: "Her photo",
-    caption: "A memory"
-}));
+        const photoGallery = photoFiles.map((file, index) => ({
+            id: index + 1,
+            src: `her/${file}`,
+            alt: "Her photo",
+            caption: "A memory"
+        }));
 
- const allPoems = [
+        const allPoems = [
 
-     { id: 0, title: "thanks", content: `if you ever feel unloved or low, 
+            {
+                id: 0, title: "thanks", content: `if you ever feel unloved or low, 
      come to this website and recall how a boy named Rishu loved you like crazy.
      also Remember me at least two days in a year
      on my birthday because i'll be missing you
      on your birthday because i'll be missing you
-     no need to text or call, just think of me for a while`, category: "beauty", date: "", favorite: true },
+     no need to text or call, just think of me for a while
+     BTW, a lot is left to say but I think you know me, so I'm leaveing the rest up to you.
+     Remember to visit this site at least on your upcoming birthdays. you probably will find some surprises there!
+     Once again,Thank you Shubhangi Stuti`, category: "beauty", date: "", favorite: true
+            },
 
-{ id: 1, title: "Poem 1", content: `अगर तुम जानना चाहती
+            {
+                id: 1, title: "Poem 1", content: `अगर तुम जानना चाहती
  तो सुनाता मैं तुम्हें अपनी कहानी 
 
 कहानी जिसमें तुम दूर होते हुए मेरे पास थी, 
@@ -449,8 +627,10 @@ const photoGallery = photoFiles.map((file, index) => ({
 खुली आंखों का खूबसूरत ख़याल तुम थी,
 बंद आंखों से देखा ख्वाब तुम थी ।।
 
-10 अक्टूबर 2024`, category: "beauty", date: "", favorite: true },
-{ id: 2, title: "Poem 2", content: `कोकिल-कंठि मृगनयनी
+10 अक्टूबर 2024`, category: "beauty", date: "", favorite: true
+            },
+            {
+                id: 2, title: "Poem 2", content: `कोकिल-कंठि मृगनयनी
 मोर सा नृत्य तुम्हारा प्रिय। 
 देह आलौकिक तेज़ विशाल
 चंद्र ललाट तुम्हारा प्रिय। 
@@ -472,8 +652,10 @@ const photoGallery = photoFiles.map((file, index) => ({
 
 
 कोकिल-कंठि मृगनयनी
-मोर सा नृत्य तुम्हारा प्रिय।`, category: "beauty", date: "", favorite: true },
-{ id: 3, title: "Poem 3", content: `काश आज तुम यहाँ होती, 
+मोर सा नृत्य तुम्हारा प्रिय।`, category: "beauty", date: "", favorite: true
+            },
+            {
+                id: 3, title: "Poem 3", content: `काश आज तुम यहाँ होती, 
 तो मैं तुम्हारी गोद में सिर छुपा कर रोता। 
 काश तुम मुझे आज भी सुन पाती, 
 तो मैं पहले की तरह तुम्हें आवाज़ लगाता। 
@@ -488,8 +670,10 @@ const photoGallery = photoFiles.map((file, index) => ({
 हाँ, पर तुम इसे मेरी कमज़ोरी मत समझना।
 ये मेरी ताकत है।
 हक़ीक़त छोड़ अपने ख़्वाबों में जीना,
-ये तो मेरी बचपन की आदत है।`, category: "yearn", date: "", favorite: false },
-{ id: 4, title: "Poem 4", content: `अरसो बाद मिले हम अगर तो क्या नज़रे मिला पाओगी
+ये तो मेरी बचपन की आदत है।`, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 4, title: "Poem 4", content: `अरसो बाद मिले हम अगर तो क्या नज़रे मिला पाओगी
 क्या इस बदले हुए शक्श को तुम पहचान भी पाओगी
 क्या कर पाओगी पार मेरी शिकायतो का ढेर 
 और क्या सुन पाओगी हमारे अतीत का श़ेर
@@ -512,8 +696,10 @@ const photoGallery = photoFiles.map((file, index) => ({
 मंज़िले हासिल नहीं होती 
 और पहली मोहब्बत मुकम्मल नहीं होती
 
- 25 फरवरी 2025`, category: "yearn", date: "", favorite: true },
-{ id: 5, title: "Poem 5", content: `तुम जाओ मेरे मोहल्ले
+ 25 फरवरी 2025`, category: "yearn", date: "", favorite: true
+            },
+            {
+                id: 5, title: "Poem 5", content: `तुम जाओ मेरे मोहल्ले
 और पूछो मेरे बारे में
 
 कुछ लोग मुझे आवारा बताएँगे
@@ -524,8 +710,10 @@ const photoGallery = photoFiles.map((file, index) => ({
 एकतरफ़ा इश्क़ में ग़ालिब बताएँगे
 इंतज़ार में बैठी शाकिर समझाएँगे
 मेरे प्यार को मुझसे ज़्यादा गुनगुनाएँगे
-तुम्हारे इश्क़ में एक शायर दिखाएँगे। `, category: "yearn", date: "", favorite: false },
-{ id: 6, title: "Poem 6", content: `Ek chhoti si gustakhi karogi kya
+तुम्हारे इश्क़ में एक शायर दिखाएँगे। `, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 6, title: "Poem 6", content: `Ek chhoti si gustakhi karogi kya
 Apne daman ka deed karoagi kya
 Chalo chhodo ye sab baatein
 Kal mandir me mujhse byah rachaogi kya
@@ -534,22 +722,30 @@ Kal mandir me mujhse byah rachaogi kya
 Mujhpe ek meharabni jataogi kya
 Apne chehre se zulfe hataogi kya
 Chalo chhodo ye sab baatein aur ek baat batao
-Kal mandir me mujhse byah rachaogi kya`, category: "love", date: "", favorite: false },
-{ id: 7, title: "Poem 7", content: `Bahar-e-fanah me jo mujhe chhodkar jaa rhi ho
+Kal mandir me mujhse byah rachaogi kya`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 7, title: "Poem 7", content: `Bahar-e-fanah me jo mujhe chhodkar jaa rhi ho
 Khuda ho ya khuda ka haath bata rhi ho
 Haan mana ki kuch khataein hui hai hamse 
-Magar ye ranjish hai ya koi saajish racha rhi ho`, category: "love", date: "", favorite: false },
-{ id: 8, title: "Poem 8", content: `Suna tha tumhe koi ladka pasand hai
+Magar ye ranjish hai ya koi saajish racha rhi ho`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 8, title: "Poem 8", content: `Suna tha tumhe koi ladka pasand hai
 Sitaare chhod tumhe chaand pasand hai
 Kal gaye the tumhare hamdard ko kareeb se dekhne 
-Sheesha dekh ke jana kya khoob pasand hai`, category: "love", date: "", favorite: false },
-{ id: 9, title: "Poem 9", content: `Tum hi batao mai kya kahu
+Sheesha dekh ke jana kya khoob pasand hai`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 9, title: "Poem 9", content: `Tum hi batao mai kya kahu
 
 Ishq kahu ya maad kahu
 Ya chaudahaveen ka chaand kahu
 Ho khubsurat tum aise jaise 
-Ki tumko mera sansaar kahu`, category: "beauty", date: "", favorite: false },
-{ id: 10, title: "Poem 10", content: `Sham thi jab tum thi
+Ki tumko mera sansaar kahu`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 10, title: "Poem 10", content: `Sham thi jab tum thi
 Raat hai jab tum nhi 
 Khush the jab tum thi
 Maayus hai jab tum nhi
@@ -557,12 +753,16 @@ Maayus hai jab tum nhi
 Parwana tha jab shama thi
 Diwana tha jab tum thi
 Udasi pe ho jeet jaha
-Wo diwali thi jab tum thi`, category: "love", date: "", favorite: false },
+Wo diwali thi jab tum thi`, category: "love", date: "", favorite: false
+            },
 
-{ id: 11, title: "Poem 11", content: `Tum diwali ki deep , mai uske tale ka andhkar priye
+            {
+                id: 11, title: "Poem 11", content: `Tum diwali ki deep , mai uske tale ka andhkar priye
 
-`, category: "love", date: "", favorite: false },
-{ id: 12, title: "Poem 12", content: `A normal day 
+`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 12, title: "Poem 12", content: `A normal day 
 My eyes feeling weak
 It is drowning in a salty lake
 Trying to overcome the eyelids 
@@ -593,12 +793,16 @@ That I've given up on my dream
 So I think I won't stop them from running  
 I'll let them run as many time as they want
 Because someday they too will understand 
-That why I'm not greedy anymore`, category: "love", date: "", favorite: false },
-{ id: 13, title: "Poem 13", content: `Chand ko sitaro se pyar hoga, ulka se nhi
+That why I'm not greedy anymore`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 13, title: "Poem 13", content: `Chand ko sitaro se pyar hoga, ulka se nhi
 Guitar se hoga, bansuri se nhi
 Chand thoda naadan hai kyunki
-Chand ko sabse pyar hoga bas shayri se nhi`, category: "yearn", date: "", favorite: false },
-{ id: 14, title: "Poem 14", content: `Kahe karte hai paap pandit ji
+Chand ko sabse pyar hoga bas shayri se nhi`, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 14, title: "Poem 14", content: `Kahe karte hai paap pandit ji
 Chhod dijiye na unko aaj pandit ji
 
 Mana ki panditain ki muskurahat se sajta hai ghar aapka
@@ -608,8 +812,10 @@ Panditain ki zulfe, panditain ki aankhein,
 Aur kin kinpe kavitayen likhenge aap pandit ji
 
 Panditain to chal di apne sapno ki or
-Ab aap bhi chal lijiye n aaj pandit ji.`, category: "love", date: "", favorite: true },
-{ id: 15, title: "Poem 15", content: `Beshaq tum mujhe har jagah milogi
+Ab aap bhi chal lijiye n aaj pandit ji.`, category: "love", date: "", favorite: true
+            },
+            {
+                id: 15, title: "Poem 15", content: `Beshaq tum mujhe har jagah milogi
 Tum mujhe yaha milogi, tum mujhe waha milogi
 Meri yaadon me milogi, meri baaton me milogi
 
@@ -621,33 +827,45 @@ Tumne mujhe nhi khoke kuchh nhi paya
 Maine khudko khoke tumhari yaadon ko paya
 
 Isliye tum mujhe har jagah milogi 
-Par mai tumhe kahi nhi milunga `, category: "", date: "", favorite: true },
-{ id: 16, title: "Poem 16", content: `Kacchi umar me har taalim phisalata hai
+Par mai tumhe kahi nhi milunga `, category: "", date: "", favorite: true
+            },
+            {
+                id: 16, title: "Poem 16", content: `Kacchi umar me har taalim phisalata hai
 Baddie dekh to sigma bhi pighalata hai 
 Aur Ham to baithe the Poonam ki raat ke intezar me 
-Kisi ne bataya nhi chand din me bhi nikalta hai`, category: "love", date: "", favorite: false },
-{ id: 17, title: "Poem 17", content: `Mai dashashvamedh ghat sa vyast
-Tu manikarnika si shant priya`, category: "beauty", date: "", favorite: false },
-{ id: 18, title: "Poem 18", content: `As if her smile was not sweet enough 
+Kisi ne bataya nhi chand din me bhi nikalta hai`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 17, title: "Poem 17", content: `Mai dashashvamedh ghat sa vyast
+Tu manikarnika si shant priya`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 18, title: "Poem 18", content: `As if her smile was not sweet enough 
 God added a topping of dimples on it 
 As if her eyes were not deluding enough 
 God added an illusion of glasses on it
 And as if her face was not pretty enough 
-God added an ornament of scar on it`, category: "beauty", date: "", favorite: false },
-{ id: 19, title: "Poem 19", content: `Suna tha usne hamara fasana pure tawajjo se 
+God added an ornament of scar on it`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 19, title: "Poem 19", content: `Suna tha usne hamara fasana pure tawajjo se 
 Thodi koshish dillagi ki usne bhi dikhai thi
 Ye to mohabbat mere mukaddar me nhi hai
-Warna panno me uske naam ki syahi hamne bhi bichhai thi`, category: "yearn", date: "", favorite: false },
-{ id: 20, title: "Poem 20", content: `Aur shayad chand ko munasib nhi tha 
+Warna panno me uske naam ki syahi hamne bhi bichhai thi`, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 20, title: "Poem 20", content: `Aur shayad chand ko munasib nhi tha 
 Mera tumko usse sundar batana 
 Shayad khuda ko gawara nhi tha 
 Mera usse uski duniya jitna 
 Mai hamesha ki tarah abhi bhi wahi hu 
 Apni maut ke chaukhat pe
 Par shayad maut ko bhi vajib nhi tha 
-Mera mujhse azad hona`, category: "yearn", date: "", favorite: false },
+Mera mujhse azad hona`, category: "yearn", date: "", favorite: false
+            },
 
-{ id: 21, title: "Poem 21", content: `At the age of 63 
+            {
+                id: 21, title: "Poem 21", content: `At the age of 63 
 We'll look into each other's eyes and i would ask 
 "Do you still love me as you used to 36 years ago? "
 You would say-
@@ -664,8 +882,10 @@ I'll be happy with the theory that you would call me to you
 My love is not the same as it was 36 years ago
 It's far deeper than the Pacific
 It's far wider than earth
-It has only grown stronger "`, category: "love", date: "", favorite: true },
-{ id: 22, title: "Poem 22", content: `Moon, nah! 
+It has only grown stronger "`, category: "love", date: "", favorite: true
+            },
+            {
+                id: 22, title: "Poem 22", content: `Moon, nah! 
 She was the sun of this earth
 who brought energy to this life
 She might disappear at night 
@@ -674,8 +894,10 @@ But her reflection always kept me in sight
 One whose mere presence gave me warmth
 One who was dangerous for my heart
 One whom I wanted to steal in my life
-One whom I aspired to be my wife`, category: "love", date: "", favorite: false },
-{ id: 23, title: "Poem 23", content: `On last day 
+One whom I aspired to be my wife`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 23, title: "Poem 23", content: `On last day 
 I just filled your details in my eyes 
 As  I was sure I ain't gonna see you again
 I did not say anything to you
@@ -687,8 +909,10 @@ Hoping there will be happy you and me
 
 Till date 
 I never said goodbye 
-Coz I don't want your bye`, category: "love", date: "", favorite: false },
-{ id: 24, title: "Poem 24", content: `Beneath the starry sky , 
+Coz I don't want your bye`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 24, title: "Poem 24", content: `Beneath the starry sky , 
 there lies a blanket of lighting flies. 
 they all search for nothing, 
 But a partner in the wrong and right. 
@@ -702,8 +926,10 @@ But the dead rise yet again
 With a chest having a deep scar
 And starts again to look for light
 With a false hope of that too far
-`, category: "love", date: "", favorite: false },
-{ id: 25, title: "Poem 25", content: `A sense that i feel every now and then
+`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 25, title: "Poem 25", content: `A sense that i feel every now and then
 A feeling , that's beautiful as first rain
 A pain , that's making me lose my sanity
 A dream , the result of my foolish vanity
@@ -711,8 +937,10 @@ A dream , the result of my foolish vanity
 The heavy breaths , the restless nights
 The lost sense and uneasy sights
 A despair , that's end of my hope
-A dream , that's out of my cope`, category: "yearn", date: "", favorite: false },
-{ id: 26, title: "Poem 26", content: `I just want a bit more ;
+A dream , that's out of my cope`, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 26, title: "Poem 26", content: `I just want a bit more ;
 A bit more of time, 
 A bit more of need, 
 A bit more of love 
@@ -723,14 +951,18 @@ But i want a lot more ;
 A lot more of you , 
 A lot more of me , 
 A lot more of smiles
-And A lot more of "WE"`, category: "love", date: "", favorite: false },
-{ id: 27, title: "Poem 27", content: `From a far galaxy not in sight 
+And A lot more of "WE"`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 27, title: "Poem 27", content: `From a far galaxy not in sight 
 She came with a dazzling light
 Like a scene out of a fairy tale 
 When this boy got his eyes set
 
-this one i wrote when i was giving jee advanced hehe`, category: "beauty", date: "", favorite: false },
-{ id: 28, title: "Poem 28", content: `In English we say "I write about you all the time"
+this one i wrote when i was giving jee advanced hehe`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 28, title: "Poem 28", content: `In English we say "I write about you all the time"
 But in poetry we say:
 
 Maybe I can't say it aloud 
@@ -740,8 +972,10 @@ every line describes the beauty that can't behold by human eyes
 every stanza makes a failed attempt to contain your temptation
 every poem bleeds your absence
 
-every inspo that comes to me is a seed sown by you`, category: "beauty", date: "", favorite: false },
-{ id: 29, title: "Poem 29", content: `Har sham school ke baad
+every inspo that comes to me is a seed sown by you`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 29, title: "Poem 29", content: `Har sham school ke baad
 Hum aapki raah dekhte hai
 Aapke jaane ke baad v 
 Hum aapka intezar karte hai
@@ -759,8 +993,10 @@ Hum swayam hi khud se ladte hai
 Aap hamare ho nhi sakte 
 Hum Is baat ko koste hai
 Aap ek din bhool jaoge hame 
-Hum is baat se darte hai`, category: "love", date: "", favorite: false },
-{ id: 30, title: "Poem 30", content: `Dosti ki thi tumse
+Hum is baat se darte hai`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 30, title: "Poem 30", content: `Dosti ki thi tumse
 Par sahi se nibha nhin paya
 Ishq v kiya tha tumse
  par kavi jata nhi paya
@@ -773,9 +1009,11 @@ Kash tumhe v mujhse pyar hota.
 Chalo chhodo ye purani baaten, 
 Tumne hame kaha yaad karna 
 Ab itni hi fariyad hai hamri, 
-Jaha v rahna, aabad rahna`, category: "yearn", date: "", favorite: false },
+Jaha v rahna, aabad rahna`, category: "yearn", date: "", favorite: false
+            },
 
-{ id: 31, title: "Poem 31", content: `In aakhiri chand lamho me 
+            {
+                id: 31, title: "Poem 31", content: `In aakhiri chand lamho me 
 Mujhe tu jee bhar ke dekhne de 
 Mere is naasamajh dil ko 
 Apni banai jannat me jeene de
@@ -786,8 +1024,10 @@ Par abke isko tujhme khone de
 Bas ek aakhiri bar is bezan ko
 Tujhe gale lagake rone de 
 
-i was supposed to recite this directly on the last day of board exam`, category: "love", date: "", favorite: false },
-{ id: 32, title: "Poem 32", content: `Us amawas ki raat woh jugnu ban aayi thi
+i was supposed to recite this directly on the last day of board exam`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 32, title: "Poem 32", content: `Us amawas ki raat woh jugnu ban aayi thi
 Rab ne v mujh par kya khoob barkat lutayi thi
 Mai rehta tha khud me na jata tha dur
 Us jugnu ke peeche maine naapi ek khayi thi
@@ -795,20 +1035,26 @@ Us jugnu ke peeche maine naapi ek khayi thi
 Phir aage badha hi ki aayi ek ladai 
 Ek taraf me mai aur ek taraf usse judai
 Kya karu kya n karu bas yahi soch me atka tha
-Is dil-o-dimag ki ladai me, mai majnu ban baitha tha`, category: "love", date: "", favorite: false },
-{ id: 33, title: "Poem 33", content: `Khwabo me aane se pehle tum khayalo me the
+Is dil-o-dimag ki ladai me, mai majnu ban baitha tha`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 33, title: "Poem 33", content: `Khwabo me aane se pehle tum khayalo me the
 Milo dur hote hue bhi tum dil ki kitabo me the
 Bhala kyu khafa honge tere irado se hum
-tere jane ke baad v hum tere chhalawe  me the`, category: "yearn", date: "", favorite: false },
-{ id: 34, title: "Poem 34", content: `Un aankhon ke bare mai kya kahu
+tere jane ke baad v hum tere chhalawe  me the`, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 34, title: "Poem 34", content: `Un aankhon ke bare mai kya kahu
 Jo bramhand sa rahasya chhupaye hai
 Us andhkar ke bare mai kya kahu
 Jo khud me moksh saman hai
 Un palkon ke bare mai kya kahu
 Jo moh ki parakashtha ko prapt hai
 Un nazaro ke bare mai kya kahu
-Jo sampoorn srishti ko samaye hai`, category: "beauty", date: "", favorite: false },
-{ id: 35, title: "Poem 35", content: `Abke hum bichhde to shayad khwabo me mile 
+Jo sampoorn srishti ko samaye hai`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 35, title: "Poem 35", content: `Abke hum bichhde to shayad khwabo me mile 
 Jaise sukhe hue phool kitabo me mile
 
 Par tab tak wo phool mar chuka hoga 
@@ -816,8 +1062,10 @@ Un betuke khwabo ko dekhna chhod chuka hoga
 Us lamhe ke intezar me 
 Wo khilna chhod chuka hoga
 Wo phirse sajega kisi baag me
-Is bhram me jeena chhod chuka hoga`, category: "yearn", date: "", favorite: false },
-{ id: 36, title: "Poem 36", content: `Chand agar hasil ho jaye to chand kaha lagta hai
+Is bhram me jeena chhod chuka hoga`, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 36, title: "Poem 36", content: `Chand agar hasil ho jaye to chand kaha lagta hai
 Wajid shaikh
 
 Chand hasil hone ke baad bhi
@@ -828,8 +1076,10 @@ Yakinan tumne dur se
 bas uski chandni dekhi hogi
 Isiliye  chand tumhe 
 chand nhi lagta hai... 
-`, category: "love", date: "", favorite: false },
-{ id: 37, title: "Poem 37", content: `Instead of saying " I'll be there for you forever" 
+`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 37, title: "Poem 37", content: `Instead of saying " I'll be there for you forever" 
 I say 
 ""Kabhi bhatak jao kisi raah me to yaad kar lena 
 Main sahi raah dikha dunga 
@@ -840,8 +1090,10 @@ Main kandha ban tumhare saath chal lunga
 Kabhi jo yaad aa jaye hamari bhi to bas nazre mila lena
 Main aankhen bhar tumhe gale laga lunga 
 Aur jana ho dur jo kahi to wo bhi bata dena 
-Main chupchap tumhe yaadon me samet lunga""`, category: "love", date: "", favorite: false },
-{ id: 38, title: "Poem 38", content: `Yun to dhero the dost hamare bhi
+Main chupchap tumhe yaadon me samet lunga""`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 38, title: "Poem 38", content: `Yun to dhero the dost hamare bhi
 Par tumsa koi apna na tha
 Jisme tum  saath na ho mere
 Aisa koi sapna apna na tha
@@ -849,8 +1101,10 @@ Aisa koi sapna apna na tha
 Phir bhi sochta hoon kabhi
 Ki har bar kaha kasar reh jati hai
 Wo bhooli hui purani daastan 
-Har bar Ek nayi kahani ban ke aati hai`, category: "yearn", date: "", favorite: false },
-{ id: 39, title: "Poem 39", content: `Wo chand ki chamakti chandani thi 
+Har bar Ek nayi kahani ban ke aati hai`, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 39, title: "Poem 39", content: `Wo chand ki chamakti chandani thi 
 Mai uske dakshin ka andhera saya
 Wo jiske upar kavitaye thi unginat 
 Mai jise koi aaj tak jaan na paya 
@@ -858,10 +1112,12 @@ Mai jise koi aaj tak jaan na paya
 Wo jisase har kisi ko tha moh 
 jiske spasht daago ki bhi hoti prasansha thi
 Mai usi bheed ka hissa tha 
-jis nasamajh ka apna na koi kissa tha`, category: "beauty", date: "", favorite: false },
-{ id: 40, title: "Poem 40", content: ``, category: "", date: "", favorite: false },
+jis nasamajh ka apna na koi kissa tha`, category: "beauty", date: "", favorite: false
+            },
+            { id: 40, title: "Poem 40", content: ``, category: "", date: "", favorite: false },
 
-{ id: 41, title: "Poem 41", content: `Agar Tu hai heroin 
+            {
+                id: 41, title: "Poem 41", content: `Agar Tu hai heroin 
 Aur mai hu side character
 To kaisa hai ye destiny ka
 Unbujha sa factor
@@ -874,8 +1130,10 @@ Ye dil bechara kho gya
 Ab bas karo aur man jao 
 Ye bond hai unbroken
 Tumhi ho meri chhaon
-Aur mai tumhara chosen one. `, category: "love", date: "", favorite: false },
-{ id: 42, title: "Poem 42", content: `Kale kale ye nain tere
+Aur mai tumhara chosen one. `, category: "love", date: "", favorite: false
+            },
+            {
+                id: 42, title: "Poem 42", content: `Kale kale ye nain tere
 Galo par ye jo lali hai
 Madhoshi sa husn tera
 Tu ladki haye matvali hai
@@ -893,8 +1151,10 @@ Tum hi mandir ki geet ho
 Tujhe dekh muskuraunga
 Tere pyar me doob jaunga 
 Tujhe soch geet gaunga
-Mai aashiq pagal ban jaunga`, category: "beauty", date: "", favorite: false },
-{ id: 43, title: "Poem 43", content: `Chalo! Ek aakhiri baar baithte hai. 
+Mai aashiq pagal ban jaunga`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 43, title: "Poem 43", content: `Chalo! Ek aakhiri baar baithte hai. 
 
 Hamesha ke liye bichhadne se pehle 
 Ek aakhiri mulakaat karte hai
@@ -908,8 +1168,10 @@ Unhe milkar mitate hai
 "Hum dobara jaroor milenge"
 Aisa jhootha dilasa dete hai
 
-Chalo! Ek aakhiri baar baithte hai. `, category: "love", date: "", favorite: false },
-{ id: 44, title: "Poem 44", content: `Let's talk about this 
+Chalo! Ek aakhiri baar baithte hai. `, category: "love", date: "", favorite: false
+            },
+            {
+                id: 44, title: "Poem 44", content: `Let's talk about this 
 Why we admire the moon 
 Is it because it's biggest in the sky 
 Or is it because it's the brightest in the sky
@@ -922,19 +1184,25 @@ We admire it coz it remind us someone precious to us
 
 It's a time mirror that holds our memories intact the way it was back then
 
-It's a treasure box that we often open to look for the light we had.`, category: "beauty", date: "", favorite: false },
-{ id: 45, title: "Poem 45", content: `What I'm into is not a dream but a fantasy
+It's a treasure box that we often open to look for the light we had.`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 45, title: "Poem 45", content: `What I'm into is not a dream but a fantasy
 A fantasy yet to be written in my book
 A fantasy i want to have by hook or crook
 A fantasy that's unparalleled to anything so far
-A fantasy whose author is one & only me`, category: "yearn", date: "", favorite: false },
-{ id: 46, title: "Poem 46", content: `Chalo chhodo purani baatein
+A fantasy whose author is one & only me`, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 46, title: "Poem 46", content: `Chalo chhodo purani baatein
 Tum to apna vartman batao
 Shor sharabe ke is bheed ke alawa
 Tum bas apna raag sunao
 Wo raag jo mujhe sunne se jyada tumhe sunane pasand the
-Wo geet jo mere hridaya me aaj bhi smrit hai`, category: "yearn", date: "", favorite: false },
-{ id: 47, title: "Poem 47", content: `Dream is what you look for yourself 
+Wo geet jo mere hridaya me aaj bhi smrit hai`, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 47, title: "Poem 47", content: `Dream is what you look for yourself 
 Fantasy is what you write for someone else
 
 Dream is what you can achieve 
@@ -951,8 +1219,10 @@ Fantasy is to be together
 
 There is a confusing yet simple difference and that is 
 Dream is what that gives you a reason to live
-But fantasy is the reason you live on `, category: "beauty", date: "", favorite: false },
-{ id: 48, title: "Poem 48", content: `which should i love more
+But fantasy is the reason you live on `, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 48, title: "Poem 48", content: `which should i love more
 The world which resides in my pen 
 Or the pen that writes about my world
 The smile which takes my breath away
@@ -960,8 +1230,10 @@ Or the eyes that make me delusional
 The voice which still echos in my ears
 Or the laugh that i hear in my dreams
 The lines i dedicate to my muse
-Or the muse who made me write the lines`, category: "beauty", date: "", favorite: false },
-{ id: 49, title: "Poem 49", content: `A star so pretty
+Or the muse who made me write the lines`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 49, title: "Poem 49", content: `A star so pretty
 who embarasses the moon
 
 A flower so beautiful
@@ -971,8 +1243,10 @@ A verse so moving
 that symobolize an abstract art
 
 A time so vivid
-that resides in my heart`, category: "beauty", date: "", favorite: false },
-{ id: 50, title: "Poem 50", content: `And when the sun sets
+that resides in my heart`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 50, title: "Poem 50", content: `And when the sun sets
 His heart will break once again
 In the beautiful alley of love 
 The echo of shattering will sound again
@@ -980,9 +1254,11 @@ The echo of shattering will sound again
 But this time it will be way louder
 Announcing that his heart is broken 
 Still he is asking the sun to wait a little longer
-Only to realise that he is already forsaken`, category: "yearn", date: "", favorite: false },
+Only to realise that he is already forsaken`, category: "yearn", date: "", favorite: false
+            },
 
-{ id: 51, title: "Poem 51", content: `Kuch to zara mujhe pyar dikha 
+            {
+                id: 51, title: "Poem 51", content: `Kuch to zara mujhe pyar dikha 
 Ki mai ek pagal aawara
 Kaise mai bin tere jee paau
 Ki mai tera aashiq bechara
@@ -1019,8 +1295,10 @@ Kadam kadam pe tu saath mere
 Hai kaam tera  himmatwala
 
 
-this is an extended version of itna na mujhko tu pyar badha  but in different feeling`, category: "love", date: "", favorite: false },
-{ id: 52, title: "Poem 52", content: `They say if you love them let them go
+this is an extended version of itna na mujhko tu pyar badha  but in different feeling`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 52, title: "Poem 52", content: `They say if you love them let them go
 But
 
 Jo na mile use jane dena jaroori hai kya
@@ -1031,8 +1309,10 @@ Ab use aise bhool jana jaroori hai kya
 Apni jaan se jaan nikalna jaroori hai kya
 Khud hi khud se bagawat karna jaroori hai kya
 Aaj v wohi sawal mai puchta hoon khudse
-use jaane dena jaroori hai kya`, category: "yearn", date: "", favorite: false },
-{ id: 53, title: "Poem 53", content: `Admiring the star 
+use jaane dena jaroori hai kya`, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 53, title: "Poem 53", content: `Admiring the star 
 From a distance of miles far
 And When look up to the sky 
 The Heart says " I want to fly "
@@ -1044,8 +1324,10 @@ Maybe that's why he is so kind.
 But he'd faced the ultimate might
 And now He just wants to look up to sky
 Waving his hello's and smiling bright
-Coz now he knows, he doesn't have the wings to fly that high`, category: "yearn", date: "", favorite: false },
-{ id: 54, title: "Poem 54", content: `Main intezar karunga us din ka 
+Coz now he knows, he doesn't have the wings to fly that high`, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 54, title: "Poem 54", content: `Main intezar karunga us din ka 
 Jab tum wapas mere paas aaoge
 Apni unhi surili baaton se 
 Mere dil ko phir se lubhaoge
@@ -1068,12 +1350,16 @@ Phirse hum udan bharenge khoole aasman me
 Par abki aana to soch ke aana
 Apne Saath nibhane ka vada lana 
 Ladna jhagadna sab karna 
-Par phir se samay ka bahana na lana`, category: "love", date: "", favorite: true },
-{ id: 55, title: "Poem 55", content: `Kya likhu tujhpar, jo sab kuch likh chuka hun mai
+Par phir se samay ka bahana na lana`, category: "love", date: "", favorite: true
+            },
+            {
+                id: 55, title: "Poem 55", content: `Kya likhu tujhpar, jo sab kuch likh chuka hun mai
 Aur Kyun likhu tujhpar, jo tujhko hi kho chuka hun mai
 kyun aawaj du tujhe, jo mujhe sunne ko betab nhi tu
-Par kahi aur dilkashi v kaise karu, jo tere aane ke intezar me hu mai`, category: "love", date: "", favorite: true },
-{ id: 56, title: "Poem 56", content: `While i yearn for your presence
+Par kahi aur dilkashi v kaise karu, jo tere aane ke intezar me hu mai`, category: "love", date: "", favorite: true
+            },
+            {
+                id: 56, title: "Poem 56", content: `While i yearn for your presence
 You are clueless about my existence 
 And perhaps it's my destiny to long for you
 Till my weeks actually get longer than my days
@@ -1082,12 +1368,16 @@ Till my weeks actually get longer than my days
 But I suppose I found my answer long ago
 It was then when i lifted my pen for the first time
 After that , i learned to write people
-But I stopped trying to read them`, category: "yearn", date: "", favorite: false },
-{ id: 57, title: "Poem 57", content: `Waise thi to unme laakh khubiya
+But I stopped trying to read them`, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 57, title: "Poem 57", content: `Waise thi to unme laakh khubiya
 Par unki aankhon ki misal nhi
 Aur yun to dhero hai haseen is jahan me
-Par uske jaisa koi bemisaal nhi... `, category: "beauty", date: "", favorite: false },
-{ id: 58, title: "Poem 58", content: `Soon , you'll be a distant star who'll be out of my reach
+Par uske jaisa koi bemisaal nhi... `, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 58, title: "Poem 58", content: `Soon , you'll be a distant star who'll be out of my reach
 A light who is super close to my heart 
 A glittter who is fading away with time
 A shine that never failed to amaze me
@@ -1095,12 +1385,16 @@ A shine that never failed to amaze me
 But what will not change is my word
 My word to you 
 My word to myself
-My word to god`, category: "beauty", date: "", favorite: false },
-{ id: 59, title: "Poem 59", content: `Jaanta khoob hu tumhe par pehchanta nhi
+My word to god`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 59, title: "Poem 59", content: `Jaanta khoob hu tumhe par pehchanta nhi
 Bekhabar is shehar me mai aaj tujhe pukarta nhi
 Had to tab ho gyi jab mujhe abhash hua ki 
-Qayamat ki raat hai aur mai aaj v bhagwaan ko manta nhi`, category: "yearn", date: "", favorite: false },
-{ id: 60, title: "Poem 60", content: `Is there any alternate reality where WE exist.
+Qayamat ki raat hai aur mai aaj v bhagwaan ko manta nhi`, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 60, title: "Poem 60", content: `Is there any alternate reality where WE exist.
 I guess no 
 Maybe dr starnge is not real but i am 
 Maybe Cristine is not real but she is 
@@ -1112,9 +1406,11 @@ Write what my heart says at the moment
 Write what i never got to say
 Write what i wish to happen
 Write what's just a fantasy
-`, category: "love", date: "", favorite: false },
+`, category: "love", date: "", favorite: false
+            },
 
-{ id: 61, title: "Poem 61", content: `Him? Who is he?
+            {
+                id: 61, title: "Poem 61", content: `Him? Who is he?
 
 He's an addict 
 An addict of attention to quench his thirst of their presence 
@@ -1129,8 +1425,10 @@ No, He's just a liar
 A liar who is true to everyone but himself
 A liar whose dreams are nothing but a bunch of lies
 A liar, a type he used to despise the most
-`, category: "yearn", date: "", favorite: false },
-{ id: 62, title: "Poem 62", content: `I dreamt to adorn you with my twinkles
+`, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 62, title: "Poem 62", content: `I dreamt to adorn you with my twinkles
 But you came when i had lost all my stars 
 How poor you are 
 I dreamt to give you my everything 
@@ -1146,24 +1444,32 @@ Now i have everything but the fear of losing it
 As what i lost was never mine
 What i have is not mine
 What I'll have will never be mine
-So why to fear`, category: "love", date: "", favorite: false },
-{ id: 63, title: "Poem 63", content: `एक रोज मैं खुदा से मुलाकात करूंगा 
+So why to fear`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 63, title: "Poem 63", content: `एक रोज मैं खुदा से मुलाकात करूंगा 
 "बस एक सवाल" कह कर तुम्हारा पूरा हाल पूछूंगा 
 अपने नसीब में लगा हुआ दाग पोछुंगा 
 हर एक जख्म का मुनासिब इलाज पूछूंगा 
-एक रोज मैं खुदा से मुलाकात करूंगा`, category: "yearn", date: "", favorite: false },
-{ id: 64, title: "Poem 64", content: `"How lucky you are to be used frequently while i am stacked in the desk only to be needed once in a while"
+एक रोज मैं खुदा से मुलाकात करूंगा`, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 64, title: "Poem 64", content: `"How lucky you are to be used frequently while i am stacked in the desk only to be needed once in a while"
 Says the fair notebook to the rough one
 
 "At least you are someone's need. 
 The moment my pages are over I'll be thrown away never to be used again" 
 Says the rough notebook to the fair one
-`, category: "", date: "beauty", favorite: false },
-{ id: 65, title: "Poem 65", content: `बारिश का मौसम भी तनहा लगता है 
+`, category: "", date: "beauty", favorite: false
+            },
+            {
+                id: 65, title: "Poem 65", content: `बारिश का मौसम भी तनहा लगता है 
 जब मोहब्बत में इंसान आवारा होता है 
 और भला वो मेरी हो भी कैसी सकती है
-उसका जिक्र भी वहां से होता है जहां मेरा नाम खत्म होता है`, category: "beauty", date: "", favorite: false },
-{ id: 66, title: "Poem 66", content: `मैं अक्सर इस बारे में सोचता हूँ 
+उसका जिक्र भी वहां से होता है जहां मेरा नाम खत्म होता है`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 66, title: "Poem 66", content: `मैं अक्सर इस बारे में सोचता हूँ 
 कि क्या होगा जब मैं तुम्हें फिर से मिलूंगा 
 
 ये जानते हुए कि हमारा मिलना अब नामुमकिन है 
@@ -1194,8 +1500,10 @@ Says the rough notebook to the fair one
 
 एक आख़िरी बार 
 मैं अपनी भावनाओं को फिर से जाहिर करता हूँ 
-हाँ, मैं तुमसे आज भी प्यार करता हूँ ।।`, category: "love", date: "", favorite: true },
-{ id: 67, title: "Poem 67", content: `He was passing by his youth 
+हाँ, मैं तुमसे आज भी प्यार करता हूँ ।।`, category: "love", date: "", favorite: true
+            },
+            {
+                id: 67, title: "Poem 67", content: `He was passing by his youth 
 And he found the biggest JHOOTH
 It was FRIENDSHIP 
 
@@ -1207,8 +1515,10 @@ He was fool who made himself a mock
 What friendship , what bullshit
 He lost the will to try again
 Again he lost the battle of lie
-Again he found the door to die`, category: "love", date: "", favorite: false },
-{ id: 68, title: "Poem 68", content: `Staring at the clock
+Again he found the door to die`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 68, title: "Poem 68", content: `Staring at the clock
 And it says three O nine
 Yes i know that I'm dying 
 But I'll always say " I am fine"
@@ -1221,32 +1531,42 @@ But I'll punch my face instead of crying.
 Mood is like i have just lost a battle
 Voices in my head always like to rattle
 Yes i know that I'm dying
-Guess I'll die insted of trying`, category: "beauty", date: "", favorite: false },
-{ id: 69, title: "Poem 69", content: `Someday I'll STOP
+Guess I'll die insted of trying`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 69, title: "Poem 69", content: `Someday I'll STOP
 
 I'll stop writing poems for you
 I'll stop my eyes crying for you
 The day death devours my soul
-I'll stop my heartbeat beating for you`, category: "love", date: "", favorite: false },
-{ id: 70, title: "Poem 70", content: `Ek khoobsurat sehar hogi 
+I'll stop my heartbeat beating for you`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 70, title: "Poem 70", content: `Ek khoobsurat sehar hogi 
 Aur meri baanhon me tum har pehar hogi
 Tumhare honthon ki narmi ki khwaish hogi
 Aur tumhari muskurahat me raza-mandi hogi
 Tumse nikah ki guftagu hogi 
 Aur tumhare waalid ki manzoori hogi
 Yaqeenan ye koi khwab hoga
-Aur phir tumse hizr ki shab hogi`, category: "love", date: "", favorite: false },
+Aur phir tumse hizr ki shab hogi`, category: "love", date: "", favorite: false
+            },
 
-{ id: 71, title: "Poem 71", content: `You are the star i always admire
+            {
+                id: 71, title: "Poem 71", content: `You are the star i always admire
 You are the charm who make me inspire
 You are the verse i wanted to write
 You are the girl for whom i want to fight
-`, category: "beauty", date: "", favorite: false },
-{ id: 72, title: "Poem 72", content: `Tumse milna, ek ittefaq tha
+`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 72, title: "Poem 72", content: `Tumse milna, ek ittefaq tha
 Tumse bichhadna, taqdeer ki ek saazish
 Tumse mohabbat, mera muqaddar tha
-Tumse ishq, mera mustaqbil`, category: "love", date: "", favorite: false },
-{ id: 73, title: "Poem 73", content: `When death comes to me,
+Tumse ishq, mera mustaqbil`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 73, title: "Poem 73", content: `When death comes to me,
 I hope you are with me.
 I wish my head were in your lap,
 And you were saying random things-
@@ -1258,8 +1578,10 @@ You don't cry
 Instead, you wear a soft smile,
 Knowing that I'll be waiting for you,
 No matter how long fate takes 
-To let us be one in heaven.`, category: "love", date: "", favorite: false },
-{ id: 74, title: "Poem 74", content: `He is a sailor , who is out to find his beloved
+To let us be one in heaven.`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 74, title: "Poem 74", content: `He is a sailor , who is out to find his beloved
 
 Across the wide sea where winds of destiny are opposing his way,
 Even the sun is half beneath the horizon
@@ -1280,8 +1602,10 @@ He will be fixated on his dream even if it costs his life.
 He will, hopefully, find his beloved.
 
 He is a sailor who is out to find his beloved.
-`, category: "beauty", date: "", favorite: true },
-{ id: 75, title: "Poem 75", content: `I am the sea, He seeks to sail.
+`, category: "beauty", date: "", favorite: true
+            },
+            {
+                id: 75, title: "Poem 75", content: `I am the sea, He seeks to sail.
 
 He is a sailor 
 One who is blinded by my beautiful waves, not knowing how scary they are
@@ -1303,8 +1627,10 @@ What if he sinks to bring a pearl back to me
 
 I don't know
 But what I know is 
-He is a sailor who is out to find his beloved-me.`, category: "love", date: "", favorite: true },
-{ id: 76, title: "Poem 76", content: `The summer of hope is over
+He is a sailor who is out to find his beloved-me.`, category: "love", date: "", favorite: true
+            },
+            {
+                id: 76, title: "Poem 76", content: `The summer of hope is over
 So are my days of dreaming
 I always knew my destiny 
 Yet i loved to play blindfold
@@ -1315,16 +1641,20 @@ Yes, I'm alive but am i living?
 All i have is an empty shell 
 Who has no dreams to live on
 And the only thing I'm left with 
-Is a shadow that too is not mine`, category: "yearn", date: "", favorite: false },
-{ id: 77, title: "Poem 77", content: `Tumse mulaqat hui aur mujhe ishq hua 
+Is a shadow that too is not mine`, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 77, title: "Poem 77", content: `Tumse mulaqat hui aur mujhe ishq hua 
 Maano patjhad ke mausam me phool khila
 
 Tumse bichhadna hua aur mujhe phir ishq hua
 Maano aaware ko ek rog hua
 
 Tumse phir milna hua , par isbar mai hi tumhara hua
-Aur ek niras si kahani ka ant hua`, category: "yearn", date: "", favorite: false },
-{ id: 78, title: "Poem 78", content: `I'm still here
+Aur ek niras si kahani ka ant hua`, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 78, title: "Poem 78", content: `I'm still here
 I feel a little movement With every passing 3:00 AM 
 It's a sign that our numbers got increased by one more
 Stacked with hundreds of letters just like me 
@@ -1338,8 +1668,10 @@ I'm the emotion pleading to be held
 I'm the cry wanting to be heard
 
 TO: ________
-FROM: riSHU`, category: "love", date: "", favorite: true },
-{ id: 79, title: "Poem 79", content: `Night Sky
+FROM: riSHU`, category: "love", date: "", favorite: true
+            },
+            {
+                id: 79, title: "Poem 79", content: `Night Sky
 
 A blanket, where my dreams lie
 A mirror, witnessing my every cry
@@ -1362,8 +1694,10 @@ It cares me as its child
 It protects me from myself
 
 It has seen me cry
-It knows my why`, category: "yearn", date: "", favorite: false },
-{ id: 80, title: "Poem 80", content: `How do i love him
+It knows my why`, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 80, title: "Poem 80", content: `How do i love him
 
 Everytime i look at him 
 He is already watching me 
@@ -1375,9 +1709,11 @@ A feeling that only he can feel towards me
 I can never love him the way he wants me to
 I can never be who he wants me to 
 
-i tried to write your perspective`, category: "love", date: "", favorite: false },
+i tried to write your perspective`, category: "love", date: "", favorite: false
+            },
 
-{ id: 81, title: "Poem 81", content: `I'm lucky enough to express my feelings
+            {
+                id: 81, title: "Poem 81", content: `I'm lucky enough to express my feelings
 But not enough to make them heard
 
 I'm smart enough to learn the laws of physics 
@@ -1387,8 +1723,10 @@ I'm brave enough to post my poetry
 But not enough to tell my story 
 
 I'm the best guy you'll ever meet
-But not enough to love myself `, category: "yearn", date: "", favorite: false },
-{ id: 82, title: "Poem 82", content: `When I say you are perfect
+But not enough to love myself `, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 82, title: "Poem 82", content: `When I say you are perfect
 I mean it in many ways
 
 The way you smile 
@@ -1404,8 +1742,10 @@ The sweetness in your lies
 From your hideous scar 
 To your funniest laugh
 
-Everything is just perfect about you`, category: "beauty", date: "", favorite: false },
-{ id: 83, title: "Poem 83", content: `What colour is your eyes? 
+Everything is just perfect about you`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 83, title: "Poem 83", content: `What colour is your eyes? 
 I don't know
 
 Maybe they are black
@@ -1425,8 +1765,10 @@ But wait - I think I've figured it out
 The colour of your eyes is LOVE
 A colour one can only feel
 A colour that reflects your heart
-The colour of your eyes is love -one that I cherish the most`, category: "beauty", date: "", favorite: true },
-{ id: 84, title: "Poem 84", content: `By every passing second
+The colour of your eyes is love -one that I cherish the most`, category: "beauty", date: "", favorite: true
+            },
+            {
+                id: 84, title: "Poem 84", content: `By every passing second
 You are drifting further from me 
 
 From being my day-to-day routine 
@@ -1447,8 +1789,10 @@ My heart cries
 Remember how I used to call you my moon?
 Turns out I was right
 You are always in my sight 
-But slowly drifting away from me.`, category: "yearn", date: "", favorite: false },
-{ id: 85, title: "Poem 85", content: `Bro : So , were you able to make her yours?
+But slowly drifting away from me.`, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 85, title: "Poem 85", content: `Bro : So , were you able to make her yours?
 
 Me: Naah, I failed.
 Maybe I knocked on her door 
@@ -1460,12 +1804,16 @@ After all she is an angel... and I'm just a boy.
 Maybe she can never be mine 
 But I'm all hers- for eternity 
 They say " you can build a hundred houses but only one is home"
-For me , that home lives in her memories. `, category: "love", date: "", favorite: false },
-{ id: 86, title: "Poem 86", content: `Us sham tere darwaje par mai phirse aaunga
+For me , that home lives in her memories. `, category: "love", date: "", favorite: false
+            },
+            {
+                id: 86, title: "Poem 86", content: `Us sham tere darwaje par mai phirse aaunga
 Tumhari yaadon ko ateet ke kabr me dafnane aaunga
 Apni maut ke janaje ko sajane ke baad 
-Beshaq , mai teri shadi me jaroor aaunga`, category: "beauty", date: "", favorite: false },
-{ id: 87, title: "Poem 87", content: `Bro: Bhai kal uski shadi hai . Tu jaega?
+Beshaq , mai teri shadi me jaroor aaunga`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 87, title: "Poem 87", content: `Bro: Bhai kal uski shadi hai . Tu jaega?
 
 Me:
 
@@ -1482,8 +1830,10 @@ Aur unke saath pagal banke mai bhi nachunga
 Sindoor ke dabbe se mangalsutra ki thaal tak 
 Shadi Ke pehle vachan se phero ke aakhiri padav tak
 Tum dono ke haath jodne ka kaam bhi mera hoga
-Aur agle din akhbar me chhapa naam bhi mera hoga`, category: "love", date: "", favorite: true },
-{ id: 88, title: "Poem 88", content: `Mujhe dar hai 
+Aur agle din akhbar me chhapa naam bhi mera hoga`, category: "love", date: "", favorite: true
+            },
+            {
+                id: 88, title: "Poem 88", content: `Mujhe dar hai 
 Dar is baat ka ki mai tumhe kho dunga 
 Hn khoya to maine tumko pehle bhi kai baar hai
 Par is baar - mujhe dar hai.
@@ -1504,8 +1854,10 @@ Mai tumhe rokna chahta tha
 Mai tumse kehna chahta tha ki-
 
 Abhi na jao chhodkar 
-Ki dil abhi bhara nhi`, category: "love", date: "", favorite: true },
-{ id: 89, title: "Poem 89", content: `They say - we fall in love three times in our entire lifetime. 
+Ki dil abhi bhara nhi`, category: "love", date: "", favorite: true
+            },
+            {
+                id: 89, title: "Poem 89", content: `They say - we fall in love three times in our entire lifetime. 
 
 I, too, fell in love three times.
 
@@ -1521,8 +1873,10 @@ It reflects the warmth of your soul.
 Third: when I truly got to know you.
 It was only then I understood what love actually meant to me.
 
-It meant YOU. `, category: "love", date: "", favorite: true },
-{ id: 90, title: "Poem 90", content: `Bro : bro , why do you hype her so much ?
+It meant YOU. `, category: "love", date: "", favorite: true
+            },
+            {
+                id: 90, title: "Poem 90", content: `Bro : bro , why do you hype her so much ?
 Me : Because she is perfect.
 Bro : Ok , then prove me .
 
@@ -1533,12 +1887,16 @@ Yes , she is perfect .
 She is the verse every poet wants to write
 She is the art every artist kneel down to
 She is the blue sky everyone admires
-She is my beloved - one who makes my day just by existing.`, category: "beauty", date: "", favorite: false },
+She is my beloved - one who makes my day just by existing.`, category: "beauty", date: "", favorite: false
+            },
 
-{ id: 91, title: "Poem 91", content: `God first saw her, and tried to craft her likeness.
+            {
+                id: 91, title: "Poem 91", content: `God first saw her, and tried to craft her likeness.
 And that is how moon 🌙 came into existance.
-`, category: "beauty", date: "", favorite: false },
-{ id: 92, title: "Poem 92", content: `Among hundred of stars in the night sky 
+`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 92, title: "Poem 92", content: `Among hundred of stars in the night sky 
 There is one dim star just beside the moon.
 
 He is unnoticed, unappreciated, unapproved 
@@ -1549,15 +1907,21 @@ She is looking for something but she doesn't know
 Something that is already beside her 
 
 What she sees is a dim star just like others do
-She don't trust on the star that he too can light her world.`, category: "beauty", date: "", favorite: false },
-{ id: 93, title: "Poem 93", content: ` और फिर सूरजमुखी ने सूरज से पूछ ही लिया-
+She don't trust on the star that he too can light her world.`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 93, title: "Poem 93", content: ` और फिर सूरजमुखी ने सूरज से पूछ ही लिया-
  ये जो दिन में तुम मुझे पूरब से पश्चिम ले चलते हो। 
 कभी ख़याल आया कि मैं हर रात वापस घर कैसे लौटती हूँ?
-`, category: "beauty", date: "", favorite: true },
-{ id: 94, title: "Poem 94", content: `लोग कहते हैं पहली बारिश के बाद मिट्टी नहीं महकती
+`, category: "beauty", date: "", favorite: true
+            },
+            {
+                id: 94, title: "Poem 94", content: `लोग कहते हैं पहली बारिश के बाद मिट्टी नहीं महकती
 खैर मुझे क्या -
-मैंने तो पहली के बाद घर ही उस रेगिस्तान में बना लिया जहाँ कोई बारिश का नाम भी ना ले`, category: "yearn", date: "", favorite: false },
-{ id: 95, title: "Poem 95", content: `Going through his bookshelf,
+मैंने तो पहली के बाद घर ही उस रेगिस्तान में बना लिया जहाँ कोई बारिश का नाम भी ना ले`, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 95, title: "Poem 95", content: `Going through his bookshelf,
 He found his old diary from when he was 17.
 
 He had written about his dreams, his goals, his love.
@@ -1579,8 +1943,10 @@ Was my love insincere?
 
 "What a great evening." 
 - is what he said...
-`, category: "yearn", date: "", favorite: false },
-{ id: 96, title: "Poem 96", content: `Maybe the only way I can win is by losing you- to someone who'll love you more than I ever could
+`, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 96, title: "Poem 96", content: `Maybe the only way I can win is by losing you- to someone who'll love you more than I ever could
 
 One whose promises won't be worthless
 One who is wise, lucky and chosen by you.
@@ -1594,8 +1960,10 @@ and grief(that I lost mine).
 
 Maybe only then will I decipher the answer you've given me a thousand times
 And perhaps only then I'll be kissed - 
-not by you but the silence of death.`, category: "love", date: "", favorite: false },
-{ id: 97, title: "Poem 97", content: `Next life?
+not by you but the silence of death.`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 97, title: "Poem 97", content: `Next life?
 What do you mean by that?
 
 If there's next life - 
@@ -1613,8 +1981,10 @@ What if I've written this in every other life of mine?
 
 Tell me 
 How am I supposed to believe in next life
-when I barely understand this one?`, category: "love", date: "", favorite: false },
-{ id: 98, title: "Poem 98", content: `Him : Come on ! Tell me about your muse ...
+when I barely understand this one?`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 98, title: "Poem 98", content: `Him : Come on ! Tell me about your muse ...
 
 Me :
 
@@ -1633,8 +2003,10 @@ She has a sweet smile
 Just like the epicenter of diabetes. 
 
 She is what people say perfect
-Epitome of love`, category: "beauty", date: "", favorite: true },
-{ id: 99, title: "Poem 99", content: `Blessed are those poets 
+Epitome of love`, category: "beauty", date: "", favorite: true
+            },
+            {
+                id: 99, title: "Poem 99", content: `Blessed are those poets 
 who found someone to call their muse.
 
 Among them, 
@@ -1658,17 +2030,21 @@ into a beautiful piece of art.
 And when asked,
 " For who do you write?" 
 They lie about being 
-a Fantasy Writer.`, category: "beauty", date: "", favorite: false },
-{ id: 100, title: "Poem 100", content: `She had a scar on her face.
+a Fantasy Writer.`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 100, title: "Poem 100", content: `She had a scar on her face.
 While the world saw it as a flaw-
 It looked an art to me.
 As if it held the weight of her hardships-
 A mark carved by time.
 As if the heaven had gifted her 
 a unique ornament-
-not to hide but to shine.`, category: "beauty", date: "", favorite: true },
+not to hide but to shine.`, category: "beauty", date: "", favorite: true
+            },
 
-{ id: 101, title: "Poem 101", content: `Who are you to me?
+            {
+                id: 101, title: "Poem 101", content: `Who are you to me?
 My Love? My Muse? My Friend?
 
 My Love...
@@ -1687,8 +2063,10 @@ My Friend...
 The one who reshaped my beliefs 
 Who turned my chaos who into relief
 A bond that comes before all things
-A bond that will stay after everything.`, category: "love", date: "", favorite: false },
-{ id: 102, title: "Poem 102", content: `Ye vada tha ki wo hamari aakhiri mulaqat hogi 
+A bond that will stay after everything.`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 102, title: "Poem 102", content: `Ye vada tha ki wo hamari aakhiri mulaqat hogi 
 Phir har roz aasman me chand ban tum kya karne aati ho.
 
 Kya Beraham si duniya me 
@@ -1700,8 +2078,10 @@ Ya chand ko mujhsa koi shayar nhi mila
 Khair tum chand ho aur mai ek insaan
 Aur kisi ne kaha tha
 
-"Chand ki khaatir zid nhi karte - ai mere ache insaan"`, category: "yearn", date: "", favorite: false },
-{ id: 103, title: "Poem 103", content: `I hated him 
+"Chand ki khaatir zid nhi karte - ai mere ache insaan"`, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 103, title: "Poem 103", content: `I hated him 
 for the way he threw himself at me
 and called it love, 
 never once looking into my eyes. 
@@ -1716,13 +2096,17 @@ for making me wonder
 if he planned it deliberately
 so he wouldn't be the one to leave first. 
 
-tried to write your perspective`, category: "love", date: "", favorite: true },
-{ id: 104, title: "Poem 104", content: `Dinbhar tere intezar ka imtihaan sehkar
+tried to write your perspective`, category: "love", date: "", favorite: true
+            },
+            {
+                id: 104, title: "Poem 104", content: `Dinbhar tere intezar ka imtihaan sehkar
 Hum raat ko chandani ke saaye me so jaate hai
 
 Muskuraahat to bahut dur ki baat hai
-Hum to teri aankhon me hi kho jaate hai`, category: "beauty", date: "", favorite: false },
-{ id: 105, title: "Poem 105", content: `In another universe 
+Hum to teri aankhon me hi kho jaate hai`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 105, title: "Poem 105", content: `In another universe 
 I hope we meet again
 
 Love will knock my door 
@@ -1732,8 +2116,10 @@ As if we are bound with the red string of fate
 Who I am?
 I am what 
 A poet to muse, A pond to moon
-A sunflower to sun, born to die soon.`, category: "love", date: "", favorite: false },
-{ id: 106, title: "Poem 106", content: `Some guys built a time machine.
+A sunflower to sun, born to die soon.`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 106, title: "Poem 106", content: `Some guys built a time machine.
 They called it music.
 For they pierce your skin and snatch your soul,
 leap through your memories
@@ -1744,15 +2130,19 @@ They called it ciggarates.
 A paper wrapping emotions like a cage,
 creating a deluded paradise 
 that frees us from the cruel reality.
-`, category: "beauty", date: "", favorite: false },
-{ id: 107, title: "Poem 107", content: `Burn my dead body
+`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 107, title: "Poem 107", content: `Burn my dead body
 So that my ashes will find you 
 
 She will not visit my grave,
 So burn me instead.
 Let my ashes find her
-and live the dream I never did.`, category: "love", date: "", favorite: false },
-{ id: 108, title: "Poem 108", content: `It'd be great.
+and live the dream I never did.`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 108, title: "Poem 108", content: `It'd be great.
 If it weren't a pillow but you
 to whom I'd cry my heart out.
 
@@ -1760,8 +2150,10 @@ The pillow doesn't wipe my tears,
 But you would.
 You would kiss my head and whisper 
 "it's ok"
-"It's ok, I'm here"`, category: "love", date: "", favorite: false },
-{ id: 109, title: "Poem 109", content: `World saw a girl setting her hair,
+"It's ok, I'm here"`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 109, title: "Poem 109", content: `World saw a girl setting her hair,
 But I saw an angel casting a spell.
 
 Winding her hairs,
@@ -1772,8 +2164,10 @@ meeting all of the odds.
 To make time stop,
 to steal my sleep.
 Truly an angel,
-in a mortal heap.`, category: "beauty", date: "", favorite: false },
-{ id: 110, title: "Poem 110", content: `The knight was there, 
+in a mortal heap.`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 110, title: "Poem 110", content: `The knight was there, 
 even when the princess hated.
 The knight was there, 
 even when she never knew.
@@ -1797,12 +2191,16 @@ and live for whom?
 
 His purpose is gone. 
 And the knight knows what he must do.
-He'll leave...someday...soon.`, category: "love", date: "", favorite: false },
-{ id: 111, title: "Poem 111", content: `Shehar ek hota to unki gali se gujarate
+He'll leave...someday...soon.`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 111, title: "Poem 111", content: `Shehar ek hota to unki gali se gujarate
 Taqdeer me likhe hote to unke khayalo me baste
 Hamne to taqbeer ka darza diya tha unhe
-Wo agar khuda hote... to samjhte `, category: "love", date: "", favorite: false },
-{ id: 112, title: "Poem 112", content: `mai kahan... aur kaise marna pasand karunga
+Wo agar khuda hote... to samjhte `, category: "love", date: "", favorite: false
+            },
+            {
+                id: 112, title: "Poem 112", content: `mai kahan... aur kaise marna pasand karunga
 manikarnika ki bheed me 
 ya annapurna ki shant god me
 
@@ -1835,13 +2233,17 @@ Aur jahan pe mujhe darane wala bhi koi nhi hai.
 
 Kyunki ab... mujhe akele rehna hai
 mujhe... akele marna hai
-`, category: "yearn", date: "", favorite: true},
-{ id: 113, title: "Poem 113", content: `Ab jo tum ho chuki kisi aur ki
+`, category: "yearn", date: "", favorite: true
+            },
+            {
+                id: 113, title: "Poem 113", content: `Ab jo tum ho chuki kisi aur ki
 To rab se fariyad kaun karega 
 
 Taarif to tumhari sabhi karenge 
-Par ek patthar ko chaand kaun kahega`, category: "love", date: "", favorite: false },
-{ id: 114, title: "Poem 114", content: `Yaadein 
+Par ek patthar ko chaand kaun kahega`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 114, title: "Poem 114", content: `Yaadein 
 Meri eklauti aur sabse beshkimati daulat
 Jise mai har roz jeena chahta hoon
 Jo mere sapno ki diary hai hai
@@ -1862,8 +2264,10 @@ Bhoolne ki maut nhi
 
 Isliye mai apni yaadon ko lifafe me band kar dunga 
 Aur daal dunga apne man ke kisi ek kone me
-Taki mai wapas us lifafe ko kabhi dhoondh na pau`, category: "love", date: "", favorite: false },
-{ id: 115, title: "Poem 115", content: `Shayad tumsab meri kamiyo se mashroof nhi ho
+Taki mai wapas us lifafe ko kabhi dhoondh na pau`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 115, title: "Poem 115", content: `Shayad tumsab meri kamiyo se mashroof nhi ho
 Par wo sheeshe me baitha shaksh sab kuch janta hai
 Wo sab jisko maine apni diary me chhupa rakha hai
 Wo sab jiske samne aane se mai darta hoon
@@ -1881,8 +2285,10 @@ Khud ko khud se azad kare
 Yaadon ki mehfil ko abaad karke
 Apni maut ko sweekar kare
 
-`, category: "yearn", date: "", favorite: false },
-{ id: 116, title: "Poem 116", content: `Mai jab jaunga to tumhe alvida keh ke jaunga
+`, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 116, title: "Poem 116", content: `Mai jab jaunga to tumhe alvida keh ke jaunga
 Ye bata ke jaunga ki tum mujhe kho chuke ho
 
 Aur kahi mai galat ho gya aur tum mujhe dhoondhne aaye, to meri parchhai ke siwa kuch nhi paaoge
@@ -1896,12 +2302,16 @@ Aur jo kuch mai bacha hu un tukdo me, unhe samet kar tumse dur chala jau
 
 Par Haan, mai tumhari tarah achanak gayab nhi hounga
 Mai tumhe bata ke jaunga 
-Alvida keh ka jaunga`, category: "love", date: "", favorite: false },
-{ id: 117, title: "Poem 117", content: `चाँद मयस्सर किसको है
+Alvida keh ka jaunga`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 117, title: "Poem 117", content: `चाँद मयस्सर किसको है
 चाँद से मुख़ातिब कौन है
 चाँद तो चाँद है
-चाँद की साज़िश से वाक़िफ़ कौन है`, category: "beauty", date: "", favorite: false },
-{ id: 118, title: "Poem 118", content: `Ajeeb subah hai 
+चाँद की साज़िश से वाक़िफ़ कौन है`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 118, title: "Poem 118", content: `Ajeeb subah hai 
 Na chidiya apne ghonslo me chehchaha rhi 
 Na paros ke bachcho ki kilkariyan sunai pad rhi 
 Na kachre wali gadi apna gana baja rhi
@@ -1918,24 +2328,34 @@ Shayad aajkal din bhi utne hi achhe lagne lage hai jitni ki raatein laga karti t
 Shayad hawa ne rukh nhi badli balki main hi hawa ki disha me ho chala hoon
 Shayad kauwe ne koyal ke bachcho ko apna liya hai 
 
-Aur shayad isiliye mera chitt prasann hai `, category: "beauty", date: "", favorite: false },
-{ id: 119, title: "Poem 119", content: `Tumhari aankhen jo faqat sawal karti hai 
+Aur shayad isiliye mera chitt prasann hai `, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 119, title: "Poem 119", content: `Tumhari aankhen jo faqat sawal karti hai 
 Tumhari muskurahat jo sabka jawab deti hai 
 Aur sardi me surkh ye chehra tumhara 
-Uspe bindiya kambakht ye bawal lagti hai`, category: "beauty", date: "", favorite: false },
-{ id: 120, title: "Poem 120", content: `Umra bhar ka saath dene ka vada kaise karu
+Uspe bindiya kambakht ye bawal lagti hai`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 120, title: "Poem 120", content: `Umra bhar ka saath dene ka vada kaise karu
 Chand taare tod lane ka irada kaise karu
 Mera ant samay nikat hai 
-Is baat ka tumhe ishara kaise karu`, category: "love", date: "", favorite: false },
-{ id: 121, title: "Poem 121", content: `Aaj aangan me chand ko dekha to tumhari yaad aayi
+Is baat ka tumhe ishara kaise karu`, category: "love", date: "", favorite: false
+            },
+            {
+                id: 121, title: "Poem 121", content: `Aaj aangan me chand ko dekha to tumhari yaad aayi
 Laga jaise arso ke baad saans me saans aayi
 Haan manta hu kal raat hui thi tumse baat 
-Par kal ko beete hue aaj ek saal aayi `, category: "yearn", date: "", favorite: false },
-{ id: 122, title: "Poem 122", content: `Tumhari is berukhi ko mai kya naam du
+Par kal ko beete hue aaj ek saal aayi `, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 122, title: "Poem 122", content: `Tumhari is berukhi ko mai kya naam du
 Tumhari namaujudagi ko mai kya anjaam du
 Mai to khair nasamajh hu isliye tum hi bata do
-Tumhari bewafai ko mai kya inaam du`, category: "yearn", date: "", favorite: false },
-{ id: 123, title: "Poem 123", content: `They say "if you don't fight for your love, what kind of love do you have".
+Tumhari bewafai ko mai kya inaam du`, category: "yearn", date: "", favorite: false
+            },
+            {
+                id: 123, title: "Poem 123", content: `They say "if you don't fight for your love, what kind of love do you have".
 
 Then Tell me 
 Who do I have to fight
@@ -1948,8 +2368,10 @@ Who didn't listened to my prayers.
 
 Or is it me
 Who ruined everything when given the chance 
-Who can't be loved, shouldn't be loved.`, category: "love", date: "", favorite: true },
-{ id: 124, title: "Poem 124", content: `तेरी आँखों में काजल और होंठों पे लाली
+Who can't be loved, shouldn't be loved.`, category: "love", date: "", favorite: true
+            },
+            {
+                id: 124, title: "Poem 124", content: `तेरी आँखों में काजल और होंठों पे लाली
 बालों में गजरा और चाल मटवाली
 तेरे माथे पे बिंदिया और कानों की बाली
 तेरे पैरों में पायल और मुँह पे गाली
@@ -1957,8 +2379,10 @@ Who can't be loved, shouldn't be loved.`, category: "love", date: "", favorite: 
 इन्हीं में ही बसता एक हिस्सा है मेरा
 किसी का न है वो, बस तेरा ही तेरा
 तू रखना सँभाले एक मेरा बसेरा
-है लेना मुझे तेरे साथ सात फेरे`, category: "beauty", date: "", favorite: true },
-{ id: 125, title: "Poem 125", content: `Who cares about valentine 
+है लेना मुझे तेरे साथ सात फेरे`, category: "beauty", date: "", favorite: true
+            },
+            {
+                id: 125, title: "Poem 125", content: `Who cares about valentine 
 I can just imagine someone beautiful 
 like her in saaree
 with Off white base and a charcoal pallu,
@@ -1966,8 +2390,10 @@ floral mutifs scattered across it.
 A chain bracelet in hand and a silver necklace,
 wearing dusty rose lipstick and a dim red bindi, 
 And black laced sandles and a desi jhumka 
-acting as a cherry on her pretty smile with a dimple on her face.`, category: "beauty", date: "", favorite: false },
-{ id: 126, title: "Poem 126", content: `Mujhe intezar rahega 
+acting as a cherry on her pretty smile with a dimple on her face.`, category: "beauty", date: "", favorite: false
+            },
+            {
+                id: 126, title: "Poem 126", content: `Mujhe intezar rahega 
 Tumhari ek aawaz ka 
 Jise sunke mai phir se tumhare taraf dauda chala aau 
 
@@ -1978,13 +2404,14 @@ Taki mai ek koshish aur kar pau
 Mujhe intezar rahega...
 Apni maut ka 
 Taki agle janm mai wo ban ke aau
-jo tumhe pasand ho `, category: "love", date: "", favorite: false },
-{ id: 127, title: "Poem 127", content: ``, category: "love", date: "", favorite: false },
-{ id: 128, title: "Poem 128", content: ``, category: "love", date: "", favorite: false },
-{ id: 129, title: "Poem 129", content: ``, category: "love", date: "", favorite: false },
+jo tumhe pasand ho `, category: "love", date: "", favorite: false
+            },
+            { id: 127, title: "Poem 127", content: ``, category: "love", date: "", favorite: false },
+            { id: 128, title: "Poem 128", content: ``, category: "love", date: "", favorite: false },
+            { id: 129, title: "Poem 129", content: ``, category: "love", date: "", favorite: false },
 
 
-];
+        ];
 
         const footerLinks = [
             { "label": "Back to Top", "href": "#hero", "icon": "fas fa-arrow-up" },
@@ -2068,7 +2495,7 @@ jo tumhe pasand ho `, category: "love", date: "", favorite: false },
 
         // ========== EVENT HANDLERS ==========
         // Navigation click handler (delegated)
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function (event) {
             const link = event.target.closest('a[href^="#"]');
             if (link && !link.classList.contains('nav-action') && !link.classList.contains('footer-action')) {
                 event.preventDefault();
@@ -2147,7 +2574,7 @@ jo tumhe pasand ho `, category: "love", date: "", favorite: false },
         });
 
         // Poem search input handler
-        document.getElementById('poem-search').addEventListener('input', function(event) {
+        document.getElementById('poem-search').addEventListener('input', function (event) {
             searchPoems(event.target.value);
         });
 
@@ -2157,7 +2584,7 @@ jo tumhe pasand ho `, category: "love", date: "", favorite: false },
             const startIndex = (currentPhotoPage - 1) * photosPerPage;
             const endIndex = startIndex + photosPerPage;
             const morePhotos = photoGallery.slice(startIndex, endIndex);
-            
+
             if (morePhotos.length > 0) {
                 document.getElementById('gallery-grid').innerHTML += renderGalleryPhotos(morePhotos);
                 if (endIndex >= photoGallery.length) {
@@ -2176,13 +2603,13 @@ jo tumhe pasand ho `, category: "love", date: "", favorite: false },
         function filterPoems(filter) {
             currentFilter = filter;
             currentPoemPage = 1;
-            
+
             if (filter === 'all') {
                 filteredPoems = [...allPoems];
             } else {
                 filteredPoems = allPoems.filter(poem => poem.category === filter);
             }
-            
+
             document.getElementById('poems-container').innerHTML = renderPoems(
                 filteredPoems.slice(0, poemsPerPage)
             );
@@ -2194,13 +2621,13 @@ jo tumhe pasand ho `, category: "love", date: "", favorite: false },
                 filterPoems(currentFilter);
                 return;
             }
-            
-            filteredPoems = allPoems.filter(poem => 
+
+            filteredPoems = allPoems.filter(poem =>
                 poem.title.toLowerCase().includes(query.toLowerCase()) ||
                 poem.content.toLowerCase().includes(query.toLowerCase()) ||
                 poem.category.toLowerCase().includes(query.toLowerCase())
             );
-            
+
             currentPoemPage = 1;
             document.getElementById('poems-container').innerHTML = renderPoems(
                 filteredPoems.slice(0, poemsPerPage)
@@ -2211,13 +2638,13 @@ jo tumhe pasand ho `, category: "love", date: "", favorite: false },
         function changePoemPage(direction) {
             const totalPages = Math.ceil(filteredPoems.length / poemsPerPage);
             currentPoemPage += direction;
-            
+
             if (currentPoemPage < 1) currentPoemPage = 1;
             if (currentPoemPage > totalPages) currentPoemPage = totalPages;
-            
+
             const startIndex = (currentPoemPage - 1) * poemsPerPage;
             const endIndex = startIndex + poemsPerPage;
-            
+
             document.getElementById('poems-container').innerHTML = renderPoems(
                 filteredPoems.slice(startIndex, endIndex)
             );
@@ -2227,7 +2654,7 @@ jo tumhe pasand ho `, category: "love", date: "", favorite: false },
         function updatePageInfo() {
             const totalPages = Math.ceil(filteredPoems.length / poemsPerPage);
             document.getElementById('page-info').textContent = `Page ${currentPoemPage} of ${totalPages}`;
-            
+
             document.getElementById('prev-page').disabled = currentPoemPage === 1;
             document.getElementById('next-page').disabled = currentPoemPage === totalPages;
         }
@@ -2236,7 +2663,7 @@ jo tumhe pasand ho `, category: "love", date: "", favorite: false },
             const poemIndex = allPoems.findIndex(p => p.id === poemId);
             if (poemIndex !== -1) {
                 allPoems[poemIndex].favorite = !allPoems[poemIndex].favorite;
-                
+
                 // Update current view if poem is visible
                 const poemElement = document.querySelector(`[data-id="${poemId}"]`);
                 if (poemElement) {
@@ -2249,7 +2676,7 @@ jo tumhe pasand ho `, category: "love", date: "", favorite: false },
                         icon.classList.remove('fas');
                         icon.classList.add('far');
                     }
-                    
+
                     // Update favorite indicator
                     const favoriteIndicator = poemElement.querySelector('.fa-heart');
                     if (favoriteIndicator && !favoriteIndicator.closest('.favorite-btn')) {
@@ -2295,17 +2722,17 @@ jo tumhe pasand ho `, category: "love", date: "", favorite: false },
                         </div>
                     </div>
                 `;
-                
+
                 document.body.appendChild(modal);
                 document.body.style.overflow = 'hidden';
-                
+
                 // Add event listeners for the new modal
                 modal.querySelector('.close-full-poem').addEventListener('click', () => {
                     document.body.removeChild(modal);
                     document.body.style.overflow = 'auto';
                 });
-                
-                modal.querySelector('.favorite-full-btn').addEventListener('click', function() {
+
+                modal.querySelector('.favorite-full-btn').addEventListener('click', function () {
                     toggleFavorite(poemId);
                     const icon = this.querySelector('i');
                     const isNowFavorite = allPoems.find(p => p.id === poemId).favorite;
@@ -2320,9 +2747,9 @@ jo tumhe pasand ho `, category: "love", date: "", favorite: false },
                         this.classList.add('text-gray-400');
                     }
                 });
-                
+
                 // Close modal when clicking outside
-                modal.addEventListener('click', function(event) {
+                modal.addEventListener('click', function (event) {
                     if (event.target === this) {
                         document.body.removeChild(modal);
                         document.body.style.overflow = 'auto';
@@ -2333,51 +2760,104 @@ jo tumhe pasand ho `, category: "love", date: "", favorite: false },
 
         // ========== RANDOM POEM OF THE DAY ==========
 
-let dailyPoem = null;
+        let dailyPoem = null;
 
-function loadDailyPoem() {
-    const randomIndex = Math.floor(Math.random() * allPoems.length);
-    dailyPoem = allPoems[randomIndex];
+        function loadDailyPoem() {
+            const randomIndex = Math.floor(Math.random() * allPoems.length);
+            dailyPoem = allPoems[randomIndex];
 
-    document.getElementById("daily-poem-title").textContent = dailyPoem.title;
+            document.getElementById("daily-poem-title").textContent = dailyPoem.title;
 
-    const preview =
-        dailyPoem.content.substring(0, 200) +
-        (dailyPoem.content.length > 200 ? "..." : "");
+            const preview =
+                dailyPoem.content.substring(0, 200) +
+                (dailyPoem.content.length > 200 ? "..." : "");
 
-    document.getElementById("daily-poem-content").textContent = preview;
-}
-
-// Open full poem
-document.addEventListener("click", function (event) {
-    if (event.target.closest("#open-daily-poem")) {
-        if (dailyPoem) {
-            showFullPoem(dailyPoem.id);
+            document.getElementById("daily-poem-content").textContent = preview;
         }
-    }
-});
+
+        // Open full poem
+        document.addEventListener("click", function (event) {
+            if (event.target.closest("#open-daily-poem")) {
+                if (dailyPoem) {
+                    showFullPoem(dailyPoem.id);
+                }
+            }
+        });
 
         // Initialize with some photos loaded
         // Initialize with some photos loaded
-window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
 
-    // Load random poem
-    loadDailyPoem();
+            // Load random poem
+            loadDailyPoem();
 
-    // Add floating hearts animation
-    for (let i = 0; i < 15; i++) {
-        const heart = document.createElement('div');
-        heart.innerHTML = '<i class="fas fa-heart text-love-rose/30"></i>';
-        heart.className = 'absolute text-2xl animate-float';
-        heart.style.left = `${Math.random() * 100}%`;
-        heart.style.top = `${Math.random() * 100}%`;
-        heart.style.animationDelay = `${Math.random() * 5}s`;
-        document.querySelector('#hero').appendChild(heart);
-    }
+            // Add floating hearts animation
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '<i class="fas fa-heart text-love-rose/30"></i>';
+                heart.className = 'absolute text-2xl animate-float';
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.top = `${Math.random() * 100}%`;
+                heart.style.animationDelay = `${Math.random() * 5}s`;
+                document.querySelector('#hero').appendChild(heart);
+            }
 
-});
+        });
+
+        // Sakura Petals Animation
+
+        function createSakura() {
+
+            const petal = document.createElement("div");
+            petal.classList.add("sakura");
+            petal.innerHTML = "🌸";
+
+            petal.style.left = Math.random() * 100 + "vw";
+            petal.style.animationDuration = 6 + Math.random() * 6 + "s";
+            petal.style.fontSize = 14 + Math.random() * 10 + "px";
+
+            document.body.appendChild(petal);
+
+            setTimeout(() => {
+                petal.remove();
+            }, 12000);
+        }
+
+        setInterval(createSakura, 400);
+
+
+        // WARNING TYPEWRITER
+
+        const warningMessage =
+            "This page contains personal memories, poems and emotions.\n\nIf you are not Shubhangi,\nplease leave quietly.\n\nBut if you are her...\nMost welcome.";
+
+        const warningElement = document.getElementById("warning-text");
+        const enterBtn = document.getElementById("enter-btn");
+
+        let i = 0;
+
+        function typeWriter() {
+            if (i < warningMessage.length) {
+                warningElement.innerHTML += warningMessage.charAt(i);
+                i++;
+                setTimeout(typeWriter, 35);
+            } else {
+                enterBtn.classList.remove("hidden");
+            }
+        }
+
+        window.addEventListener("load", typeWriter);
+
+        enterBtn.addEventListener("click", function () {
+            const intro = document.getElementById("intro-warning");
+            intro.style.opacity = "0";
+            intro.style.transition = "opacity 1s";
+
+            setTimeout(() => {
+                intro.style.display = "none";
+            }, 1000);
+        });
     </script>
+
+   
 </body>
-
-
-
