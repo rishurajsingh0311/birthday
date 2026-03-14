@@ -121,6 +121,26 @@
                 opacity: 0;
             }
         }
+
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .image-modal img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -523,7 +543,7 @@
         </div>
     </footer>
 
-     <!-- Intro Warning Screen -->
+    <!-- Intro Warning Screen -->
     <div id="intro-warning" class="fixed inset-0 bg-black z-50 flex items-center justify-center text-center p-6">
 
         <div class="max-w-xl text-white">
@@ -543,6 +563,10 @@
 
     </div>
 
+    <div id="imageModal" class="image-modal">
+        <img id="expandedImg">
+    </div>
+
     <script>
         // ========== DATA LAYER ==========
         const navigationItems = [
@@ -558,7 +582,7 @@
             "B4.jpeg",
             "B5.jpeg",
             "B6.jpeg",
-            "F1.jpeg", "F2.jpeg", "F3.jpeg", "F4.jpeg", "F5.jpeg", "F6.jpeg", "F7.jpeg", "F8.jpeg", "P1.jpeg", "P2.jpeg", "P3.jpeg", "P4.jpeg", "P5.jpeg", "P6.jpeg", "P7.jpeg", "P8.jpeg", "P9.jpeg", "P10.jpeg", "P11.jpeg", "P12.jpeg", "P13.jpeg", "P14.jpeg", "P15.jpeg", "P16.jpeg", "P17.jpeg", "P18.jpeg", "P19.jpeg", "P20.jpeg", "P21.jpeg", "P22.jpeg", "P23.jpeg", "P24.jpeg", "P25.jpeg", "P26.jpeg", "P27.jpeg", "P28.jpeg", "P29.jpeg", "P30.jpeg", "P31.jpeg", "P32.jpeg", "P33.jpeg", "P34.jpeg", "P35.jpeg", "P36.jpeg", "P37.jpeg", "P38.jpeg", "P39.jpeg", "P40jpeg", "P41.jpeg"
+            "F1.jpeg", "F2.jpeg", "F3.jpeg", "F4.jpeg", "F5.jpeg", "F6.jpeg", "F7.jpeg", "F8.jpeg", "P1.jpeg", "P2.jpeg", "P3.jpeg", "P4.jpeg", "P5.jpeg", "P6.jpeg", "P7.jpeg", "P8.jpeg", "P9.jpeg", "P10.jpeg", "P11.jpeg", "P12.jpeg", "P13.jpeg", "P14.jpeg", "P15.jpeg", "P16.jpeg", "P17.jpeg", "P18.jpeg", "P19.jpeg", "P20.jpeg", "P21.jpeg", "P22.jpeg", "P23.jpeg", "P24.jpeg", "P25.jpeg", "P26.jpeg", "P27.jpeg", "P28.jpeg", "P29.jpeg", "P30.jpeg", "P31.jpeg", "P32.jpeg", "P33.jpeg", "P34.jpeg", "P35.jpeg", "P36.jpeg", "P37.jpeg", "P38.jpeg", "P39.jpeg", "P40.jpeg", "P41.jpeg"
 
         ];
 
@@ -2433,7 +2457,10 @@ jo tumhe pasand ho `, category: "love", date: "", favorite: false
         function renderGalleryPhotos(photos) {
             return photos.map(photo => `
                 <div class="relative overflow-hidden rounded-2xl shadow-lg group transform transition duration-500 hover:scale-[1.02]">
-                    <img src="${photo.src}" alt="${photo.alt}" class="w-full h-64 object-cover group-hover:scale-110 transition duration-700" loading="lazy">
+                    <img src="${photo.src}" alt="${photo.alt}"
+data-src="${photo.src}"
+class="gallery-photo w-full h-64 object-contain group-hover:scale-110 transition duration-700 cursor-pointer"
+loading="lazy">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end p-4">
                         <p class="text-white font-medium">${photo.caption}</p>
                     </div>
@@ -2505,6 +2532,11 @@ jo tumhe pasand ho `, category: "love", date: "", favorite: false
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
+            }
+
+            // gallery image click
+            if (event.target.classList.contains("gallery-photo")) {
+                openImage(event.target.dataset.src);
             }
 
             // Video button
@@ -2857,7 +2889,19 @@ jo tumhe pasand ho `, category: "love", date: "", favorite: false
                 intro.style.display = "none";
             }, 1000);
         });
+
+        const modal = document.getElementById("imageModal");
+        const expandedImg = document.getElementById("expandedImg");
+
+        function openImage(src) {
+            modal.style.display = "flex";
+            expandedImg.src = src;
+        }
+
+        modal.onclick = function () {
+            modal.style.display = "none";
+        }
     </script>
 
-   
+
 </body>
